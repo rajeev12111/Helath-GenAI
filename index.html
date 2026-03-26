@@ -1127,7 +1127,9 @@
                     time.</div>
                 <div class="sec-sub">We appreciate your time.</div>
                 <div style="margin-top:24px">
-                    <button class="btn-next" onclick="resetSurvey()" style="background:var(--gray4);border:none;padding:12px 24px;border-radius:8px;color:white;font-weight:600;cursor:pointer">Start Over</button>
+                    <button class="btn-next" onclick="resetSurvey()"
+                        style="background:var(--gray4);border:none;padding:12px 24px;border-radius:8px;color:white;font-weight:600;cursor:pointer">Start
+                        Over</button>
                 </div>
             </div>
         </div>
@@ -1550,8 +1552,11 @@
                             style="color:var(--green-t)">Yes</span></div>
                 </div>
                 <div style="margin-top:24px">
-                    <button class="btn-next" onclick="downloadCSV()" style="width:100%;margin-bottom:12px">Download My Data (Excel/CSV)</button>
-                    <button class="btn-back" onclick="goBack()" style="width:100%;background:white;color:var(--gray3);border:1.5px solid var(--gray5)">Back to Review Responses</button>
+                    <button class="btn-next" onclick="downloadCSV()" style="width:100%;margin-bottom:12px">Download My
+                        Data (Excel/CSV)</button>
+                    <button class="btn-back" onclick="goBack()"
+                        style="width:100%;background:white;color:var(--gray3);border:1.5px solid var(--gray5)">Back to
+                        Review Responses</button>
                 </div>
                 <div style="margin-top:20px;font-size:12px;color:var(--gray4)">If you have questions, contact:
                     research@iimb.ac.in</div>
@@ -1883,7 +1888,7 @@
         const PAGE_NAMES = ['Welcome', 'Screener', 'Advisory', 'Impression Check', 'Your Impressions', 'Willingness to Pay', 'About You', 'Complete'];
 
         // REPLACE THIS with your Google Apps Script Web App URL
-        const SCRIPT_URL = ""; 
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxHe489GbF4yOwJyQvVhAg-eIEoFevGF96KZtI2b2ZWVUfaAXgJ1RyrAQNqYFPSr1GYXQ/exec";
 
         // ═══════════════════════════════════════════
         // RESEARCHER DEMO
@@ -1982,8 +1987,8 @@
                 return v;
             });
 
-            const csvContent = "data:text/csv;charset=utf-8," 
-                + keys.join(",") + "\n" 
+            const csvContent = "data:text/csv;charset=utf-8,"
+                + keys.join(",") + "\n"
                 + values.join(",");
 
             const encodedUri = encodeURI(csvContent);
