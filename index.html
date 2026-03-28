@@ -986,6 +986,12 @@
                 transform: translateY(0)
             }
         }
+
+        .comp {
+            color: #ef4444;
+            margin-left: 2px;
+            font-weight: 700;
+        }
     </style>
 </head>
 
@@ -1041,7 +1047,6 @@
                 <div class="welcome-pills">
                     <span class="welcome-pill">8 to 10 minutes</span>
                     <span class="welcome-pill">Fully anonymous</span>
-                    <span class="welcome-pill">IIM Bangalore</span>
                 </div>
             </div>
             <div class="info-row">
@@ -1089,7 +1094,8 @@
 
             <div class="card">
                 <div class="var-chip">SCREENER_1</div>
-                <div class="card-label">Q1. Are you currently managing your own health?</div>
+                <div class="card-label">Q1. Are you currently managing your own health? <span class="comp">*</span>
+                </div>
                 <div class="card-sub">This includes any chronic condition, fitness goal, diabetes management, general
                     wellness, etc.</div>
                 <div class="yn-row">
@@ -1100,7 +1106,8 @@
 
             <div class="card">
                 <div class="var-chip">SCREENER_2</div>
-                <div class="card-label">Q2. Are you currently managing health for a family member?</div>
+                <div class="card-label">Q2. Are you currently managing health for a family member? <span
+                        class="comp">*</span></div>
                 <div class="card-sub">For example: a parent with diabetes, a child with a health condition, or a spouse
                     with a chronic illness.</div>
                 <div class="yn-row">
@@ -1172,22 +1179,26 @@
                 <div class="card-label">Rate each statement about the source of the advisory</div>
                 <div class="card-sub">1 = Strongly Disagree, 7 = Strongly Agree</div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>SC1.</strong> The source of this information is a doctor.</div>
+                    <div class="lk-q"><strong>SC1.</strong> The source of this information is a doctor. <span
+                            class="comp">*</span></div>
                     <div class="lk-row" id="SC1"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>SC2.</strong> The source of this information is an AI assistant.</div>
+                    <div class="lk-q"><strong>SC2.</strong> The source of this information is an AI assistant. <span
+                            class="comp">*</span></div>
                     <div class="lk-row" id="SC2"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>SC3.</strong> The source of this advisory has medical expertise.</div>
+                    <div class="lk-q"><strong>SC3.</strong> The source of this advisory has medical expertise. <span
+                            class="comp">*</span></div>
                     <div class="lk-row" id="SC3"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
                 <div class="lk-item">
                     <div class="lk-q"><strong>SC4.</strong> The source of this advisory is automated and data-driven.
+                        <span class="comp">*</span>
                     </div>
                     <div class="lk-row" id="SC4"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
@@ -1197,7 +1208,7 @@
             <!-- APPEAL CHECKS -->
             <div class="card" id="appeal-check-card">
                 <div class="var-chip" id="ac-var-chip">APPEAL_CHECK_ACTION_1 to APPEAL_CHECK_CONT_2</div>
-                <div class="card-label">About the content of the advisory (Yes or No)</div>
+                <div class="card-label">About the content of the advisory (Yes or No) <span class="comp">*</span></div>
                 <div class="card-sub">Answer based strictly on what the advisory contained</div>
                 <div id="appeal-checks-body"></div>
             </div>
@@ -1222,23 +1233,26 @@
                     Strongly Agree)</div>
                 <div class="lk-item">
                     <div class="lk-q"><strong>SE1.</strong> I am confident I can follow the health guidance provided.
+                        <span class="comp">*</span>
                     </div>
                     <div class="lk-row" id="SE1"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
                 <div class="lk-item">
                     <div class="lk-q"><strong>SE2.</strong> I believe I can successfully manage my health with this
-                        support.</div>
+                        support. <span class="comp">*</span></div>
                     <div class="lk-row" id="SE2"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>SE3.</strong> I feel capable of taking the recommended actions.</div>
+                    <div class="lk-q"><strong>SE3.</strong> I feel capable of taking the recommended actions. <span
+                            class="comp">*</span></div>
                     <div class="lk-row" id="SE3"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
                 <div class="lk-item">
                     <div class="lk-q"><strong>SE4.</strong> This service makes me feel more in control of my health.
+                        <span class="comp">*</span>
                     </div>
                     <div class="lk-row" id="SE4"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
@@ -1253,23 +1267,26 @@
                     Strongly Agree)</div>
                 <div class="lk-item">
                     <div class="lk-q"><strong>TRUST1.</strong> I trust the health information provided in this advisory.
+                        <span class="comp">*</span>
                     </div>
                     <div class="lk-row" id="TRUST1"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>TRUST2.</strong> The source of this advisory is reliable.</div>
+                    <div class="lk-q"><strong>TRUST2.</strong> The source of this advisory is reliable. <span
+                            class="comp">*</span></div>
                     <div class="lk-row" id="TRUST2"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>TRUST3.</strong> The guidance provided in this advisory is accurate.</div>
+                    <div class="lk-q"><strong>TRUST3.</strong> The guidance provided in this advisory is accurate. <span
+                            class="comp">*</span></div>
                     <div class="lk-row" id="TRUST3"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
                 <div class="lk-item">
                     <div class="lk-q"><strong>TRUST4.</strong> The source of this advisory has my best interests in
-                        mind.</div>
+                        mind. <span class="comp">*</span></div>
                     <div class="lk-row" id="TRUST4"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
@@ -1283,23 +1300,26 @@
                     Agree)</div>
                 <div class="lk-item">
                     <div class="lk-q"><strong>LTV1.</strong> This service will help me maintain health gains over time.
+                        <span class="comp">*</span>
                     </div>
                     <div class="lk-row" id="LTV1"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>LTV2.</strong> The value of this service grows the longer I use it.</div>
+                    <div class="lk-q"><strong>LTV2.</strong> The value of this service grows the longer I use it. <span
+                            class="comp">*</span></div>
                     <div class="lk-row" id="LTV2"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
                 <div class="lk-item">
                     <div class="lk-q"><strong>LTV3.</strong> Ongoing support from this service prevents me from losing
-                        progress.</div>
+                        progress. <span class="comp">*</span></div>
                     <div class="lk-row" id="LTV3"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
                 <div class="lk-item">
                     <div class="lk-q"><strong>LTV4.</strong> This is a service I would stick with over the long term.
+                        <span class="comp">*</span>
                     </div>
                     <div class="lk-row" id="LTV4"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
@@ -1313,18 +1333,20 @@
                 <div class="card-sub">Does this advisory feel tailored to you? (1 = Strongly Disagree, 7 = Strongly
                     Agree)</div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>PERS1.</strong> The advice feels tailored to my specific situation.</div>
+                    <div class="lk-q"><strong>PERS1.</strong> The advice feels tailored to my specific situation. <span
+                            class="comp">*</span></div>
                     <div class="lk-row" id="PERS1"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>PERS2.</strong> This service understands my specific health needs.</div>
+                    <div class="lk-q"><strong>PERS2.</strong> This service understands my specific health needs. <span
+                            class="comp">*</span></div>
                     <div class="lk-row" id="PERS2"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
                 <div class="lk-item">
                     <div class="lk-q"><strong>PERS3.</strong> The guidance in this advisory seems customized for me
-                        personally.</div>
+                        personally. <span class="comp">*</span></div>
                     <div class="lk-row" id="PERS3"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
@@ -1338,7 +1360,7 @@
     <div class="pg" id="pg5">
         <div class="main">
             <div class="sec-chip">Section 5 of 6 — Willingness to Pay</div>
-            <div class="sec-title">How much would you pay for this service?</div>
+            <div class="sec-title">How much would you pay for this service? <span class="comp">*</span></div>
             <div class="sec-sub">This question uses a special method to get your honest maximum. Please read the
                 instructions carefully before entering your amount.</div>
 
@@ -1383,23 +1405,27 @@
                 <div class="card-label">Health Involvement</div>
                 <div class="card-sub">1 = Strongly Disagree, 7 = Strongly Agree</div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>HI1.</strong> My health is a top priority in my daily life.</div>
+                    <div class="lk-q"><strong>HI1.</strong> My health is a top priority in my daily life. <span
+                            class="comp">*</span></div>
                     <div class="lk-row" id="HI1"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>HI2.</strong> I think about my health frequently throughout the day.</div>
+                    <div class="lk-q"><strong>HI2.</strong> I think about my health frequently throughout the day. <span
+                            class="comp">*</span></div>
                     <div class="lk-row" id="HI2"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
                 <div class="lk-item">
                     <div class="lk-q"><strong>HI3.</strong> I actively seek out health information on a regular basis.
+                        <span class="comp">*</span>
                     </div>
                     <div class="lk-row" id="HI3"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>HI4.</strong> Managing my health is important to me.</div>
+                    <div class="lk-q"><strong>HI4.</strong> Managing my health is important to me. <span
+                            class="comp">*</span></div>
                     <div class="lk-row" id="HI4"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
@@ -1411,17 +1437,20 @@
                 <div class="card-label">Digital Literacy</div>
                 <div class="card-sub">1 = Strongly Disagree, 6 = Strongly Agree</div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>DL1.</strong> I am comfortable using digital apps on my smartphone.</div>
+                    <div class="lk-q"><strong>DL1.</strong> I am comfortable using digital apps on my smartphone. <span
+                            class="comp">*</span></div>
                     <div class="lk-row" id="DL1"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>DL2.</strong> I frequently use smartphone apps in my daily life.</div>
+                    <div class="lk-q"><strong>DL2.</strong> I frequently use smartphone apps in my daily life. <span
+                            class="comp">*</span></div>
                     <div class="lk-row" id="DL2"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
                 <div class="lk-item">
                     <div class="lk-q"><strong>DL3.</strong> I feel confident navigating new digital platforms and apps.
+                        <span class="comp">*</span>
                     </div>
                     <div class="lk-row" id="DL3"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
@@ -1536,9 +1565,7 @@
                         <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
                     </svg></div>
                 <div class="ty-title">Thank you!</div>
-                <div class="ty-sub">Your responses have been recorded. This study is part of doctoral research at IIM
-                    Bangalore on how people perceive and pay for digital health advisory services. Your participation is
-                    greatly appreciated.</div>
+                <div class="ty-sub">Your responses have been recorded. This study examines how people perceive and pay for digital health advisory services. Your participation is greatly appreciated.</div>
                 <div class="ty-summary">
                     <div
                         style="font-size:11px;font-weight:700;color:var(--blue2);text-transform:uppercase;letter-spacing:.4px;margin-bottom:12px">
@@ -1550,6 +1577,10 @@
                             style="color:var(--green-t)">Yes</span></div>
                     <div class="ty-row"><span class="k">All sections completed</span><span class="v"
                             style="color:var(--green-t)">Yes</span></div>
+                    <div id="sync-status"
+                        style="margin-top:10px;font-size:11px;font-weight:600;padding:6px 10px;border-radius:6px;background:var(--gray6);color:var(--gray3);text-align:center">
+                        Checking online sync...
+                    </div>
                 </div>
                 <div style="margin-top:24px">
                     <button class="btn-next" onclick="downloadCSV()" style="width:100%;margin-bottom:12px">Download My
@@ -1883,7 +1914,7 @@
         let curPage = 0;
         let condIdx = Math.floor(Math.random() * 14); // random from study 1 (0-13) by default
         let R = {}; // responses object
-        
+
         function initResponses() {
             // Initialize all possible keys to ensure consistent Google Sheets columns
             const keys = [
@@ -1899,6 +1930,17 @@
             R._submitted = false;
         }
         initResponses();
+
+        // DELEGATED LISTENER for dynamic Yes/No buttons
+        document.addEventListener('click', e => {
+            if (e.target.classList.contains('dyn-yn-btn')) {
+                const group = e.target.dataset.group;
+                const val = e.target.dataset.val;
+                document.querySelectorAll(`.dyn-yn-btn[data-group="${group}"]`).forEach(b => b.classList.remove('sel-y', 'sel-n'));
+                e.target.classList.add(val === 'y' ? 'sel-y' : 'sel-n');
+                R[group] = val;
+            }
+        });
 
         const TOTAL_PAGES = 8; // 0-7 (0=welcome,1=screener,1b=inelig,2=stim,3=mc,4=med,5=wtp,6=demo,7=ty)
         const PAGE_IDS = ['pg0', 'pg1', 'pg2', 'pg3', 'pg4', 'pg5', 'pg6', 'pg7'];
@@ -1975,11 +2017,30 @@
         }
 
         async function submitToSheets() {
+            const statusEl = document.getElementById('sync-status');
             if (!SCRIPT_URL) {
                 console.warn('No SCRIPT_URL configured. Data not sent to Google Sheets.');
+                if (statusEl) {
+                    statusEl.textContent = '⚠️ Google Sheets Link Missing (See Script Guide)';
+                    statusEl.style.background = '#fee2e2';
+                    statusEl.style.color = '#991b1b';
+                }
                 return;
             }
-            if (R._submitted) return; // Prevent duplicate submissions
+            if (R._submitted) {
+                if (statusEl) {
+                    statusEl.textContent = '✅ Responses Synced Successfully';
+                    statusEl.style.background = '#dcfce7';
+                    statusEl.style.color = '#166534';
+                }
+                return;
+            }
+
+            if (statusEl) {
+                statusEl.textContent = '⏳ Syncing to Google Sheets...';
+                statusEl.style.background = '#fef3c7';
+                statusEl.style.color = '#92400e';
+            }
 
             try {
                 const response = await fetch(SCRIPT_URL, {
@@ -1989,10 +2050,20 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(R)
                 });
-                R._submitted = true; // Mark as submitted
+                R._submitted = true;
                 console.log('Data submitted to Google Sheets.');
+                if (statusEl) {
+                    statusEl.textContent = '✅ Data Stored Online Successfully';
+                    statusEl.style.background = '#dcfce7';
+                    statusEl.style.color = '#166534';
+                }
             } catch (e) {
                 console.error('Submission failed:', e);
+                if (statusEl) {
+                    statusEl.textContent = '❌ Sync Failed (Local data saved as CSV)';
+                    statusEl.style.background = '#fee2e2';
+                    statusEl.style.color = '#991b1b';
+                }
             }
         }
 
@@ -2023,19 +2094,68 @@
         // ═══════════════════════════════════════════
         function validate() {
             if (curPage === 1) {
-                if (!R.SCREENER_1) { alert('Please answer question 1.'); return false; }
-                if (!R.SCREENER_2) { alert('Please answer question 2.'); return false; }
+                if (!R.SCREENER_1) { alert('Please answer Screener question 1.'); return false; }
+                if (!R.SCREENER_2) { alert('Please answer Screener question 2.'); return false; }
                 if (R.SCREENER_1 === 'n' && R.SCREENER_2 === 'n') {
-                    curPage = 999; // special
+                    curPage = 999;
                     showPage('pg1b');
                     document.getElementById('btn-next').style.display = 'none';
                     document.getElementById('btn-back').style.visibility = 'hidden';
                     return false;
                 }
             }
+            if (curPage === 3) {
+                const sc = ['SC1', 'SC2', 'SC3', 'SC4'];
+                for (let id of sc) {
+                    if (!document.querySelector('#' + id + ' input[type=radio]:checked')) {
+                        alert('Please complete all Manipulation Checks (Questions 1-4).'); return false;
+                    }
+                }
+                const isStudy2 = CONDS[condIdx].study === 2;
+                if (isStudy2) {
+                    const ac = ['AICAP1', 'AICAP2', 'AICAP3'];
+                    for (let id of ac) {
+                        if (!document.querySelector('#' + id + ' input[type=radio]:checked')) {
+                            alert('Please complete all Appeal Checks.'); return false;
+                        }
+                    }
+                } else {
+                    const ac = ['AC1', 'AC2', 'CC1', 'CC2'];
+                    for (let id of ac) {
+                        if (!R[id]) { alert('Please answer all Appeal Checks (Yes/No questions).'); return false; }
+                    }
+                }
+            }
+            if (curPage === 4) {
+                const items = ['SE1', 'SE2', 'SE3', 'SE4', 'TRUST1', 'TRUST2', 'TRUST3', 'TRUST4', 'LTV1', 'LTV2', 'LTV3', 'LTV4', 'PERS1', 'PERS2', 'PERS3'];
+                for (let id of items) {
+                    if (!document.querySelector('#' + id + ' input[type=radio]:checked')) {
+                        alert('Please complete all Your Impression questions (1-15).'); return false;
+                    }
+                }
+            }
             if (curPage === 5) {
                 const v = document.getElementById('wtp-val').value;
-                if (v === '' || isNaN(+v) || +v < 0 || +v > 2000) { alert('Please enter a valid amount between ₹0 and ₹2,000.'); return false; }
+                if (v === '' || isNaN(+v) || +v < 0 || +v > 2000) { alert('Please enter a valid amount between ₹0 and ₹2,000 for Willingness to Pay.'); return false; }
+            }
+            if (curPage === 6) {
+                const lk = ['HI1', 'HI2', 'HI3', 'HI4', 'DL1', 'DL2', 'DL3'];
+                for (let id of lk) {
+                    if (!document.querySelector('#' + id + ' input[type=radio]:checked')) {
+                        alert('Please complete all scales (Health Involvement/Digital Literacy).'); return false;
+                    }
+                }
+                const fields = ['cg', 'ct', 'ps'];
+                for (let f of fields) {
+                    if (!R[f]) { alert('Please answer all caregiver/health area questions.'); return false; }
+                }
+                const demos = [
+                    { id: 'd-age', n: 'Age' }, { id: 'd-gender', n: 'Gender' }, { id: 'd-edu', n: 'Education' },
+                    { id: 'd-income', n: 'Income' }, { id: 'd-occ', n: 'Occupation' }, { id: 'd-city', n: 'City' }
+                ];
+                for (let d of demos) {
+                    if (!document.getElementById(d.id).value) { alert('Please provide your ' + d.n + '.'); return false; }
+                }
             }
             return true;
         }
@@ -2055,12 +2175,12 @@
                 // but we ensure they are captured if handled differently
             }
             if (curPage === 3 || curPage === 4 || curPage === 6) {
-                const keysToRead = [
+                const radioIds = [
                     'SC1', 'SC2', 'SC3', 'SC4', 'SE1', 'SE2', 'SE3', 'SE4', 'TRUST1', 'TRUST2', 'TRUST3', 'TRUST4',
                     'LTV1', 'LTV2', 'LTV3', 'LTV4', 'PERS1', 'PERS2', 'PERS3', 'HI1', 'HI2', 'HI3', 'HI4',
                     'DL1', 'DL2', 'DL3', 'AICAP1', 'AICAP2', 'AICAP3'
                 ];
-                keysToRead.forEach(id => {
+                radioIds.forEach(id => {
                     const el = document.querySelector('#' + id + ' input[type=radio]:checked');
                     if (el) R[id] = el.value;
                 });
@@ -2167,7 +2287,7 @@
             return `<div class="lk-item"><div class="lk-q">${q}</div><div class="lk-row" id="${id}"></div><div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div></div>`;
         }
         function ynItem(id, q) {
-            return `<div style="margin-bottom:16px"><div style="font-size:14px;color:var(--gray1);margin-bottom:9px">${q}</div><div style="display:flex;gap:10px"><div class="yn-btn dyn-yn-btn" data-group="${id}" data-val="y">Yes</div><div class="yn-btn dyn-yn-btn" data-group="${id}" data-val="n">No</div></div></div>`;
+            return `<div style="margin-bottom:16px"><div style="font-size:14px;color:var(--gray1);margin-bottom:9px">${q} <span class="comp">*</span></div><div style="display:flex;gap:10px"><div class="yn-btn dyn-yn-btn" data-group="${id}" data-val="y">Yes</div><div class="yn-btn dyn-yn-btn" data-group="${id}" data-val="n">No</div></div></div>`;
         }
 
         // ═══════════════════════════════════════════
