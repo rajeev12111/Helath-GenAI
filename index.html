@@ -1590,7 +1590,7 @@
                         Review Responses</button>
                 </div>
                 <div style="margin-top:20px;font-size:12px;color:var(--gray4)">If you have questions, contact:
-                    research@iimb.ac.in</div>
+                    rajeevray12345@gmail.com</div>
             </div>
         </div>
     </div>
@@ -1912,18 +1912,23 @@
         // STATE
         // ═══════════════════════════════════════════
         let curPage = 0;
-        let condIdx = Math.floor(Math.random() * 14); // random from study 1 (0-13) by default
+        let s1CondIdx = Math.floor(Math.random() * 14); // Study 1: 0-13
+        let s2CondIdx = 14 + Math.floor(Math.random() * 3); // Study 2: 14-16
         let R = {}; // responses object
 
         function initResponses() {
             // Initialize all possible keys to ensure consistent Google Sheets columns
             const keys = [
-                'CONDITION', 'CONDITION_LABEL', 'STUDY', 'SCREENER_1', 'SCREENER_2',
-                'SC1', 'SC2', 'SC3', 'SC4', 'AC1', 'AC2', 'CC1', 'CC2',
-                'AICAP1', 'AICAP2', 'AICAP3', 'SE1', 'SE2', 'SE3', 'SE4',
-                'TRUST1', 'TRUST2', 'TRUST3', 'TRUST4', 'LTV1', 'LTV2', 'LTV3', 'LTV4',
-                'PERS1', 'PERS2', 'PERS3', 'WTP_BDM', 'HI1', 'HI2', 'HI3', 'HI4',
-                'DL1', 'DL2', 'DL3', 'CAREGIVER_STATUS', 'CONDITION_TYPE', 'PRIOR_SUBSCRIPTION',
+                'S1_CONDITION', 'S1_CONDITION_LABEL', 'S1_SC1', 'S1_SC2', 'S1_SC3', 'S1_SC4',
+                'S1_AC1', 'S1_AC2', 'S1_CC1', 'S1_CC2', 'S1_WTP',
+                'S1_SE1', 'S1_SE2', 'S1_SE3', 'S1_SE4', 'S1_TRUST1', 'S1_TRUST2', 'S1_TRUST3', 'S1_TRUST4',
+                'S1_LTV1', 'S1_LTV2', 'S1_LTV3', 'S1_LTV4', 'S1_PERS1', 'S1_PERS2', 'S1_PERS3',
+                'S2_CONDITION', 'S2_CONDITION_LABEL', 'S2_SC1', 'S2_SC2', 'S2_SC3', 'S2_SC4',
+                'S2_AICAP1', 'S2_AICAP2', 'S2_AICAP3', 'S2_WTP',
+                'S2_SE1', 'S2_SE2', 'S2_SE3', 'S2_SE4', 'S2_TRUST1', 'S2_TRUST2', 'S2_TRUST3', 'S2_TRUST4',
+                'S2_LTV1', 'S2_LTV2', 'S2_LTV3', 'S2_LTV4', 'S2_PERS1', 'S2_PERS2', 'S2_PERS3',
+                'SCREENER_1', 'SCREENER_2', 'HI1', 'HI2', 'HI3', 'HI4', 'DL1', 'DL2', 'DL3',
+                'CAREGIVER_STATUS', 'CONDITION_TYPE', 'PRIOR_SUBSCRIPTION',
                 'AGE', 'GENDER', 'EDUCATION', 'INCOME', 'OCCUPATION', 'CITY'
             ];
             keys.forEach(k => R[k] = "");
@@ -1938,26 +1943,40 @@
                 const val = e.target.dataset.val;
                 document.querySelectorAll(`.dyn-yn-btn[data-group="${group}"]`).forEach(b => b.classList.remove('sel-y', 'sel-n'));
                 e.target.classList.add(val === 'y' ? 'sel-y' : 'sel-n');
+
+                // Save to R (Screener or Prefixed Study Var)
                 R[group] = val;
             }
         });
 
-        const TOTAL_PAGES = 8; // 0-7 (0=welcome,1=screener,1b=inelig,2=stim,3=mc,4=med,5=wtp,6=demo,7=ty)
-        const PAGE_IDS = ['pg0', 'pg1', 'pg2', 'pg3', 'pg4', 'pg5', 'pg6', 'pg7'];
-        const PAGE_NAMES = ['Welcome', 'Screener', 'Advisory', 'Impression Check', 'Your Impressions', 'Willingness to Pay', 'About You', 'Complete'];
+        const TOTAL_PAGES = 12;
+        const PAGE_IDS = ['pg0', 'pg1', 'pg2', 'pg3', 'pg4', 'pg5', 'pg2', 'pg3', 'pg4', 'pg5', 'pg6', 'pg7'];
+        const PAGE_NAMES = ['Welcome', 'Screener', 'Study 1: Advisory', 'Study 1: Check', 'Study 1: Impression', 'Study 1: WTP', 'Study 2: Advisory', 'Study 2: Check', 'Study 2: Impression', 'Study 2: WTP', 'About You', 'Complete'];
+
+        // Helper to get current study context
+        function getCurStudy() {
+            if (curPage >= 2 && curPage <= 5) return 1;
+            if (curPage >= 6 && curPage <= 9) return 2;
+            return 0;
+        }
+
+        // Helper to get current condition index
+        function getCondIdx() {
+            return (getCurStudy() === 2) ? s2CondIdx : s1CondIdx;
+        }
 
         // REPLACE THIS with your Google Apps Script Web App URL
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxHe489GbF4yOwJyQvVhAg-eIEoFevGF96KZtI2b2ZWVUfaAXgJ1RyrAQNqYFPSr1GYXQ/exec";
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzbO4_e8DSBW9oFkILsZiPR8r7ZHYG1_CSht55cP5iauTK6WeqdpXh4W38J98WGDxAK/exec";
 
         // ═══════════════════════════════════════════
         // RESEARCHER DEMO
         // ═══════════════════════════════════════════
         function setDemo(idx, btn) {
-            condIdx = idx;
+            if (idx < 14) s1CondIdx = idx; else s2CondIdx = idx;
             document.querySelectorAll('.demo-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            if (curPage === 2) buildStimulus();
-            if (curPage === 3) buildAppealChecks();
+            if (curPage === 2 || curPage === 6) buildStimulus();
+            if (curPage === 3 || curPage === 7) buildAppealChecks();
         }
 
         // ═══════════════════════════════════════════
@@ -1968,11 +1987,13 @@
             document.getElementById('prog').style.width = pct + '%';
             document.getElementById('step-badge').textContent = 'Step ' + (curPage + 1) + ' of ' + TOTAL_PAGES;
             document.getElementById('nav-info').textContent = PAGE_NAMES[curPage] || '';
-            document.getElementById('btn-back').style.visibility = (curPage > 0) ? 'visible' : 'hidden';
+            document.getElementById('btn-back').style.visibility = (curPage > 1 && curPage < 11) ? 'visible' : 'hidden'; // Hide back on Welcome/Screener/Final
+
             const nb = document.getElementById('btn-next');
-            nb.style.display = curPage === 7 ? 'none' : '';
+            nb.style.display = (curPage === 11) ? 'none' : ''; // Hide on final page
+
             if (curPage === 0) nb.textContent = 'Begin Survey';
-            else if (curPage === 6) nb.textContent = 'Submit Responses';
+            else if (curPage === 10) nb.textContent = 'Submit Responses';
             else nb.textContent = 'Continue';
         }
 
@@ -1984,7 +2005,7 @@
         }
 
         function goBack() {
-            if (curPage === 7) R._submitted = false; // Allow re-submission if user goes back to edit
+            if (curPage === 11) R._submitted = false; // Allow re-submission if user goes back to edit
             if (curPage > 0) { curPage--; showPage(PAGE_IDS[curPage]); }
         }
 
@@ -1992,11 +2013,22 @@
             if (!validate()) return;
             save();
             curPage++;
-            if (curPage === 2) { buildStimulus(); buildAppealChecks(); buildAllLikerts(); }
-            if (curPage === 3) { buildAppealChecks(); }
-            if (curPage === 7) {
-                document.getElementById('ty-cond').textContent = CONDS[condIdx].label + ' — ' + CONDS[condIdx].full;
-                document.getElementById('ty-wtp').textContent = '₹' + (R.WTP_BDM || '—');
+
+            // Clear page inputs if repeating blocks
+            if (curPage === 2 || curPage === 6) {
+                document.querySelectorAll('input[type=radio]').forEach(r => r.checked = false);
+                document.querySelectorAll('input[type=number], input[type=text]').forEach(i => i.value = '');
+                document.querySelectorAll('.yn-btn, .mc-opt').forEach(b => b.classList.remove('sel', 'sel-y', 'sel-n'));
+                buildStimulus(); buildAppealChecks(); buildAllLikerts();
+            }
+            if (curPage === 3 || curPage === 7) {
+                buildAppealChecks();
+            }
+            if (curPage === 11) {
+                const s1 = CONDS[s1CondIdx];
+                const s2 = CONDS[s2CondIdx];
+                document.getElementById('ty-cond').textContent = 'Completed Sequential Study (S1: ' + s1.label + ', S2: ' + s2.label + ')';
+                document.getElementById('ty-wtp').textContent = 'S1: ₹' + (R.S1_WTP || '—') + ' | S2: ₹' + (R.S2_WTP || '—');
                 console.log('FINAL RESPONSE DATA:');
                 console.table(R);
                 submitToSheets(); // Submit on completion
@@ -2008,12 +2040,90 @@
             if (!confirm('This will restart the survey and clear all your answers. Continue?')) return;
             initResponses();
             curPage = 0;
-            // Clear radio buttons and inputs
+            s1CondIdx = Math.floor(Math.random() * 14);
+            s2CondIdx = 14 + Math.floor(Math.random() * 3);
             document.querySelectorAll('input[type=radio]').forEach(r => r.checked = false);
             document.querySelectorAll('input[type=number], input[type=text]').forEach(i => i.value = '');
             document.querySelectorAll('.yn-btn, .mc-opt').forEach(b => b.classList.remove('sel', 'sel-y', 'sel-n'));
             document.querySelectorAll('select').forEach(s => s.selectedIndex = 0);
             showPage('pg0');
+        }
+
+        function validate() {
+            const study = getCurStudy();
+            const pre = study ? 'S' + study + '_' : '';
+
+            if (curPage === 1) {
+                if (!R.SCREENER_1) { alert('Please answer Screener question 1.'); return false; }
+                if (!R.SCREENER_2) { alert('Please answer Screener question 2.'); return false; }
+                if (R.SCREENER_1 === 'n' && R.SCREENER_2 === 'n') {
+                    curPage = 999;
+                    showPage('pg1b');
+                    document.getElementById('btn-next').style.display = 'none';
+                    document.getElementById('btn-back').style.visibility = 'hidden';
+                    return false;
+                }
+            }
+            if (curPage === 3 || curPage === 7) {
+                const sc = ['SC1', 'SC2', 'SC3', 'SC4'];
+                for (let id of sc) {
+                    const el = document.querySelector('#' + id + ' input[type=radio]:checked') ||
+                        document.querySelector('#' + pre + id + ' input[type=radio]:checked');
+                    if (!el) {
+                        alert('Please complete all Manipulation Checks (Questions 1-4).'); return false;
+                    }
+                }
+                const isStudy2 = study === 2;
+                if (isStudy2) {
+                    const ac = ['AICAP1', 'AICAP2', 'AICAP3'];
+                    for (let id of ac) {
+                        const el = document.querySelector('#' + id + ' input[type=radio]:checked') ||
+                            document.querySelector('#' + pre + id + ' input[type=radio]:checked');
+                        if (!el) {
+                            alert('Please complete all Appeal Checks.'); return false;
+                        }
+                    }
+                } else {
+                    const ac = ['AC1', 'AC2', 'CC1', 'CC2'];
+                    for (let id of ac) {
+                        if (!R['S1_' + id]) { alert('Please answer all Appeal Checks (Yes/No questions).'); return false; }
+                    }
+                }
+            }
+            if (curPage === 4 || curPage === 8) {
+                const items = ['SE1', 'SE2', 'SE3', 'SE4', 'TRUST1', 'TRUST2', 'TRUST3', 'TRUST4', 'LTV1', 'LTV2', 'LTV3', 'LTV4', 'PERS1', 'PERS2', 'PERS3'];
+                for (let id of items) {
+                    const el = document.querySelector('#' + id + ' input[type=radio]:checked') ||
+                        document.querySelector('#' + pre + id + ' input[type=radio]:checked');
+                    if (!el) {
+                        alert('Please complete all Your Impression questions (1-15).'); return false;
+                    }
+                }
+            }
+            if (curPage === 5 || curPage === 9) {
+                const v = document.getElementById('wtp-val').value;
+                if (v === '' || isNaN(+v) || +v < 0 || +v > 2000) { alert('Please enter a valid amount between ₹0 and ₹2,000 for Willingness to Pay.'); return false; }
+            }
+            if (curPage === 10) {
+                const lk = ['HI1', 'HI2', 'HI3', 'HI4', 'DL1', 'DL2', 'DL3'];
+                for (let id of lk) {
+                    if (!document.querySelector('#' + id + ' input[type=radio]:checked')) {
+                        alert('Please complete all scales (Health Involvement/Digital Literacy).'); return false;
+                    }
+                }
+                const fields = ['cg', 'ct', 'ps'];
+                for (let f of fields) {
+                    if (!R[f]) { alert('Please answer all caregiver/health area questions.'); return false; }
+                }
+                const demos = [
+                    { id: 'd-age', n: 'Age' }, { id: 'd-gender', n: 'Gender' }, { id: 'd-edu', n: 'Education' },
+                    { id: 'd-income', n: 'Income' }, { id: 'd-occ', n: 'Occupation' }, { id: 'd-city', n: 'City' }
+                ];
+                for (let d of demos) {
+                    if (!document.getElementById(d.id).value) { alert('Please provide your ' + d.n + '.'); return false; }
+                }
+            }
+            return true;
         }
 
         async function submitToSheets() {
@@ -2090,105 +2200,42 @@
         }
 
         // ═══════════════════════════════════════════
-        // VALIDATE
-        // ═══════════════════════════════════════════
-        function validate() {
-            if (curPage === 1) {
-                if (!R.SCREENER_1) { alert('Please answer Screener question 1.'); return false; }
-                if (!R.SCREENER_2) { alert('Please answer Screener question 2.'); return false; }
-                if (R.SCREENER_1 === 'n' && R.SCREENER_2 === 'n') {
-                    curPage = 999;
-                    showPage('pg1b');
-                    document.getElementById('btn-next').style.display = 'none';
-                    document.getElementById('btn-back').style.visibility = 'hidden';
-                    return false;
-                }
-            }
-            if (curPage === 3) {
-                const sc = ['SC1', 'SC2', 'SC3', 'SC4'];
-                for (let id of sc) {
-                    if (!document.querySelector('#' + id + ' input[type=radio]:checked')) {
-                        alert('Please complete all Manipulation Checks (Questions 1-4).'); return false;
-                    }
-                }
-                const isStudy2 = CONDS[condIdx].study === 2;
-                if (isStudy2) {
-                    const ac = ['AICAP1', 'AICAP2', 'AICAP3'];
-                    for (let id of ac) {
-                        if (!document.querySelector('#' + id + ' input[type=radio]:checked')) {
-                            alert('Please complete all Appeal Checks.'); return false;
-                        }
-                    }
-                } else {
-                    const ac = ['AC1', 'AC2', 'CC1', 'CC2'];
-                    for (let id of ac) {
-                        if (!R[id]) { alert('Please answer all Appeal Checks (Yes/No questions).'); return false; }
-                    }
-                }
-            }
-            if (curPage === 4) {
-                const items = ['SE1', 'SE2', 'SE3', 'SE4', 'TRUST1', 'TRUST2', 'TRUST3', 'TRUST4', 'LTV1', 'LTV2', 'LTV3', 'LTV4', 'PERS1', 'PERS2', 'PERS3'];
-                for (let id of items) {
-                    if (!document.querySelector('#' + id + ' input[type=radio]:checked')) {
-                        alert('Please complete all Your Impression questions (1-15).'); return false;
-                    }
-                }
-            }
-            if (curPage === 5) {
-                const v = document.getElementById('wtp-val').value;
-                if (v === '' || isNaN(+v) || +v < 0 || +v > 2000) { alert('Please enter a valid amount between ₹0 and ₹2,000 for Willingness to Pay.'); return false; }
-            }
-            if (curPage === 6) {
-                const lk = ['HI1', 'HI2', 'HI3', 'HI4', 'DL1', 'DL2', 'DL3'];
-                for (let id of lk) {
-                    if (!document.querySelector('#' + id + ' input[type=radio]:checked')) {
-                        alert('Please complete all scales (Health Involvement/Digital Literacy).'); return false;
-                    }
-                }
-                const fields = ['cg', 'ct', 'ps'];
-                for (let f of fields) {
-                    if (!R[f]) { alert('Please answer all caregiver/health area questions.'); return false; }
-                }
-                const demos = [
-                    { id: 'd-age', n: 'Age' }, { id: 'd-gender', n: 'Gender' }, { id: 'd-edu', n: 'Education' },
-                    { id: 'd-income', n: 'Income' }, { id: 'd-occ', n: 'Occupation' }, { id: 'd-city', n: 'City' }
-                ];
-                for (let d of demos) {
-                    if (!document.getElementById(d.id).value) { alert('Please provide your ' + d.n + '.'); return false; }
-                }
-            }
-            return true;
-        }
-
-        // ═══════════════════════════════════════════
         // SAVE
         // ═══════════════════════════════════════════
         function save() {
-            // General Metadata (always updated)
-            R.CONDITION = CONDS[condIdx].id;
-            R.CONDITION_LABEL = CONDS[condIdx].full;
-            R.STUDY = CONDS[condIdx].study;
+            const study = getCurStudy();
+            const pre = study ? 'S' + study + '_' : '';
+            const cIdx = getCondIdx();
 
-            // Page-specific data (Incremental capture)
-            if (curPage === 1) {
-                // Screener responses are already set by yn() handler, 
-                // but we ensure they are captured if handled differently
+            if (study) {
+                R[pre + 'CONDITION'] = CONDS[cIdx].id;
+                R[pre + 'CONDITION_LABEL'] = CONDS[cIdx].full;
             }
-            if (curPage === 3 || curPage === 4 || curPage === 6) {
+
+            if (curPage === 1) {
+                // Screener responses are already handled by yn() directly into R
+            }
+            if (study && (curPage === 3 || curPage === 7 || curPage === 4 || curPage === 8)) {
                 const radioIds = [
                     'SC1', 'SC2', 'SC3', 'SC4', 'SE1', 'SE2', 'SE3', 'SE4', 'TRUST1', 'TRUST2', 'TRUST3', 'TRUST4',
-                    'LTV1', 'LTV2', 'LTV3', 'LTV4', 'PERS1', 'PERS2', 'PERS3', 'HI1', 'HI2', 'HI3', 'HI4',
-                    'DL1', 'DL2', 'DL3', 'AICAP1', 'AICAP2', 'AICAP3'
+                    'LTV1', 'LTV2', 'LTV3', 'LTV4', 'PERS1', 'PERS2', 'PERS3', 'AICAP1', 'AICAP2', 'AICAP3'
                 ];
                 radioIds.forEach(id => {
+                    // Check for static ID or prefixed dynamic ID (Study 2)
+                    const el = document.querySelector('#' + id + ' input[type=radio]:checked') ||
+                        document.querySelector('#' + pre + id + ' input[type=radio]:checked');
+                    if (el) R[pre + id] = el.value;
+                });
+            }
+            if (study && (curPage === 5 || curPage === 9)) {
+                R[pre + 'WTP'] = +document.getElementById('wtp-val').value;
+            }
+            if (curPage === 10) {
+                const lkIds = ['HI1', 'HI2', 'HI3', 'HI4', 'DL1', 'DL2', 'DL3'];
+                lkIds.forEach(id => {
                     const el = document.querySelector('#' + id + ' input[type=radio]:checked');
                     if (el) R[id] = el.value;
                 });
-            }
-            if (curPage === 5) {
-                R.WTP_BDM = +document.getElementById('wtp-val').value;
-            }
-            if (curPage === 6) {
                 R.CAREGIVER_STATUS = R.cg || '';
                 R.CONDITION_TYPE = R.ct || '';
                 R.PRIOR_SUBSCRIPTION = R.ps || '';
@@ -2202,7 +2249,7 @@
         }
 
         // ═══════════════════════════════════════════
-        // BUILD STIMULUS
+        // STIMULUS & QUESTION BUILDERS
         // ═══════════════════════════════════════════
         const DOCSVG = `<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="#93c5fd"/><path d="M4 20c0-3.5 3.6-6 8-6s8 2.5 8 6" fill="#bfdbfe"/><rect x="10.5" y="14" width="3" height="5" rx="1" fill="#3b82f6"/><circle cx="12" cy="16.5" r="1" fill="white"/></svg>`;
         const AISVG = `<svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="4" fill="#38bdf8"/><circle cx="9" cy="12" r="1.8" fill="white"/><circle cx="15" cy="12" r="1.8" fill="white"/><path d="M9.5 15.5Q12 17 14.5 15.5" stroke="white" stroke-width="1.4" fill="none" stroke-linecap="round"/><line x1="8" y1="6" x2="8" y2="3.5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round"/><line x1="12" y1="6" x2="12" y2="2.5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round"/><line x1="16" y1="6" x2="16" y2="3.5" stroke="#0ea5e9" stroke-width="1.5" stroke-linecap="round"/></svg>`;
@@ -2210,7 +2257,8 @@
         const CHKSVG = `<svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>`;
 
         function buildStimulus() {
-            const c = CONDS[condIdx];
+            const cIdx = getCondIdx();
+            const c = CONDS[cIdx];
             let srcH = '';
             if (c.src === 'doc') {
                 srcH = `<div class="pf-src"><div class="pf-srcrow"><div class="pf-av">${DOCSVG}</div><div><div class="pf-sname">${c.sn}</div><div class="pf-srole">${c.sr}</div><div class="pf-vbadge" style="background:${c.vbg};color:${c.vbc}">${CHKSVG} ${c.vb}</div></div></div></div>`;
@@ -2228,59 +2276,41 @@
                 bodyH += c.body.map(p => `<p>${p}</p>`).join('');
             }
             document.getElementById('stimulus-render').innerHTML = `
-    <div class="phone-frame">
-      <div class="pf-notch"><div class="pf-pill"></div></div>
-      <div class="pf-screen">
-        <div class="pf-appbar">
-          <div class="pf-logo">${LOGOSVG}</div>
-          <div><div class="pf-name">HealthGuide</div><div class="pf-sub">Health Advisory Service</div></div>
-        </div>
-        ${srcH}
-        <div class="pf-adv">
-          <div class="pf-advtitle">${c.title}</div>
-          <div class="pf-advbody">${bodyH}</div>
-          <div class="pf-footer">${c.footer}</div>
-        </div>
-      </div>
-    </div>`;
+                <div class="phone-frame">
+                    <div class="pf-notch"><div class="pf-pill"></div></div>
+                    <div class="pf-screen">
+                        <div class="pf-appbar"><div class="pf-logo">${LOGOSVG}</div><div><div class="pf-name">HealthGuide</div><div class="pf-sub">Health Advisory Service</div></div></div>
+                        ${srcH}
+                        <div class="pf-adv">
+                            <div class="pf-advtitle">${c.title}</div>
+                            <div class="pf-advbody">${bodyH}</div>
+                            <div class="pf-footer">${c.footer}</div>
+                        </div>
+                    </div>
+                </div>`;
         }
 
-        // ═══════════════════════════════════════════
-        // BUILD APPEAL CHECKS (dynamic per condition)
-        // ═══════════════════════════════════════════
         function buildAppealChecks() {
-            const c = CONDS[condIdx];
-            let html = '';
-            // Study 2 gets AI capability checks instead
-            if (c.study === 2) {
-                document.getElementById('ac-var-chip').textContent = 'AICAP_1 to AICAP_3 + CONT_CHECK_1 to CONT_CHECK_2';
-                html += lkItem('AICAP1', 'AICAP1. The service adapts to my preferences.');
-                html += lkItem('AICAP2', 'AICAP2. The service adjusts based on my behaviour.');
-                html += lkItem('AICAP3', 'AICAP3. The service learns from me over time.');
-                html += '<div style="margin-top:16px;font-size:13px;font-weight:600;color:var(--gray2);margin-bottom:8px">About the message content (Yes or No)</div>';
-                html += ynItem('CC1', 'Did the message emphasize staying consistent over time?');
-                html += ynItem('CC2', 'Did the message mention preventing loss of progress?');
+            const study = getCurStudy();
+            const cIdx = getCondIdx();
+            const pre = study ? 'S' + study + '_' : '';
+            const isStudy2 = study === 2;
+
+            document.getElementById('ac-var-chip').textContent = isStudy2 ? 'AICAP1 to AICAP3 (Likert)' : 'AC1 to CC2 (Yes/No)';
+            const body = document.getElementById('appeal-checks-body');
+            let h = '';
+            if (isStudy2) {
+                h += lkItem(pre + 'AICAP1', 'The health advisory seems to provide personalized and highly relevant health recommendations.');
+                h += lkItem(pre + 'AICAP2', 'The service provides health advice that is dynamic and tailored specifically for me.');
+                h += lkItem(pre + 'AICAP3', 'The guidance adapted to my health profile over time to give more accurate suggestions.');
             } else {
-                document.getElementById('ac-var-chip').textContent = 'APPEAL_CHECK_ACTION_1 to APPEAL_CHECK_CONT_2';
-                html += ynItem('AC1', 'Did the advisory provide a specific action plan for the week?');
-                html += ynItem('AC2', 'Did the advisory tell you exactly what action to take today?');
-                html += ynItem('CC1', 'Did the message emphasize staying consistent over time?');
-                html += ynItem('CC2', 'Did the message mention preventing loss of progress?');
+                h += ynItem(pre + 'AC1', 'Does this advisory emphasize that your health gains will be long-lasting?');
+                h += ynItem(pre + 'AC2', 'Does this advisory suggest that its value grows the longer you use it?');
+                h += ynItem(pre + 'CC1', 'Does this advisory provide a list of specific health actions for you to follow?');
+                h += ynItem(pre + 'CC2', 'Does this advisory tell you exactly what you need to do next?');
             }
-            document.getElementById('appeal-checks-body').innerHTML = html;
-            // render likerts for AICAP if study 2
-            if (c.study === 2) {
-                buildLikert('AICAP1', 7); buildLikert('AICAP2', 7); buildLikert('AICAP3', 7);
-            }
-            // wire yn buttons
-            document.querySelectorAll('.dyn-yn-btn').forEach(btn => {
-                btn.onclick = function () {
-                    const g = this.dataset.group;
-                    document.querySelectorAll('.dyn-yn-btn[data-group="' + g + '"]').forEach(b => { b.classList.remove('sel-y', 'sel-n') });
-                    this.classList.add(this.dataset.val === 'y' ? 'sel-y' : 'sel-n');
-                    R[g] = this.dataset.val;
-                };
-            });
+            body.innerHTML = h;
+            if (isStudy2) { buildLikert(pre + 'AICAP1', 7); buildLikert(pre + 'AICAP2', 7); buildLikert(pre + 'AICAP3', 7); }
         }
 
         function lkItem(id, q) {
@@ -2291,7 +2321,7 @@
         }
 
         // ═══════════════════════════════════════════
-        // BUILD LIKERT SCALES
+        // LIKERT BUILDER
         // ═══════════════════════════════════════════
         function buildAllLikerts() {
             const ids7 = ['SC1', 'SC2', 'SC3', 'SC4', 'SE1', 'SE2', 'SE3', 'SE4', 'TRUST1', 'TRUST2', 'TRUST3', 'TRUST4', 'LTV1', 'LTV2', 'LTV3', 'LTV4', 'PERS1', 'PERS2', 'PERS3', 'HI1', 'HI2', 'HI3', 'HI4'];
@@ -2299,6 +2329,7 @@
             ids7.forEach(id => buildLikert(id, 7));
             ids6.forEach(id => buildLikert(id, 6));
         }
+
         function buildLikert(id, max) {
             const el = document.getElementById(id);
             if (!el || el.children.length > 0) return;
@@ -2311,10 +2342,9 @@
         // UI HELPERS
         // ═══════════════════════════════════════════
         function yn(group, val) {
-            document.querySelectorAll(`[id^="${group}"]`).forEach(b => {
-                if (b.classList.contains('yn-btn')) { b.classList.remove('sel-y', 'sel-n'); }
-            });
-            document.getElementById(group + val).classList.add(val === 'y' ? 'sel-y' : 'sel-n');
+            document.querySelectorAll(`[id^="${group}"]`).forEach(b => b.classList.remove('sel-y', 'sel-n'));
+            const el = document.getElementById(group + val);
+            if (el) el.classList.add(val === 'y' ? 'sel-y' : 'sel-n');
             R[group] = val;
         }
         function mc(el, group) {
