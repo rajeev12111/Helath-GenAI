@@ -1040,12 +1040,13 @@
                     read the information below before starting.</p>
                 <div class="welcome-pills">
                     <span class="welcome-pill">8 to 10 minutes</span>
-                    <span class="welcome-pill"> Fully anonymous</span>
+                    <span class="welcome-pill">Fully anonymous</span>
+                    <span class="welcome-pill">IIM Bangalore</span>
                 </div>
             </div>
             <div class="info-row">
                 <div class="info-card">
-                    <div class="num">10</div>
+                    <div class="num">8</div>
                     <div class="lbl">Minutes</div>
                 </div>
                 <div class="info-card">
@@ -1535,7 +1536,9 @@
                         <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
                     </svg></div>
                 <div class="ty-title">Thank you!</div>
-                <div class="ty-sub">Your responses have been recorded for a study on how people perceive and pay for digital health advisory services. Your participation is greatly appreciated.</div>
+                <div class="ty-sub">Your responses have been recorded. This study is part of doctoral research at IIM
+                    Bangalore on how people perceive and pay for digital health advisory services. Your participation is
+                    greatly appreciated.</div>
                 <div class="ty-summary">
                     <div
                         style="font-size:11px;font-weight:700;color:var(--blue2);text-transform:uppercase;letter-spacing:.4px;margin-bottom:12px">
@@ -1880,6 +1883,23 @@
         let curPage = 0;
         let condIdx = Math.floor(Math.random() * 14); // random from study 1 (0-13) by default
         let R = {}; // responses object
+        
+        function initResponses() {
+            // Initialize all possible keys to ensure consistent Google Sheets columns
+            const keys = [
+                'CONDITION', 'CONDITION_LABEL', 'STUDY', 'SCREENER_1', 'SCREENER_2',
+                'SC1', 'SC2', 'SC3', 'SC4', 'AC1', 'AC2', 'CC1', 'CC2',
+                'AICAP1', 'AICAP2', 'AICAP3', 'SE1', 'SE2', 'SE3', 'SE4',
+                'TRUST1', 'TRUST2', 'TRUST3', 'TRUST4', 'LTV1', 'LTV2', 'LTV3', 'LTV4',
+                'PERS1', 'PERS2', 'PERS3', 'WTP_BDM', 'HI1', 'HI2', 'HI3', 'HI4',
+                'DL1', 'DL2', 'DL3', 'CAREGIVER_STATUS', 'CONDITION_TYPE', 'PRIOR_SUBSCRIPTION',
+                'AGE', 'GENDER', 'EDUCATION', 'INCOME', 'OCCUPATION', 'CITY'
+            ];
+            keys.forEach(k => R[k] = "");
+            R._submitted = false;
+        }
+        initResponses();
+
         const TOTAL_PAGES = 8; // 0-7 (0=welcome,1=screener,1b=inelig,2=stim,3=mc,4=med,5=wtp,6=demo,7=ty)
         const PAGE_IDS = ['pg0', 'pg1', 'pg2', 'pg3', 'pg4', 'pg5', 'pg6', 'pg7'];
         const PAGE_NAMES = ['Welcome', 'Screener', 'Advisory', 'Impression Check', 'Your Impressions', 'Willingness to Pay', 'About You', 'Complete'];
@@ -1935,7 +1955,8 @@
             if (curPage === 7) {
                 document.getElementById('ty-cond').textContent = CONDS[condIdx].label + ' — ' + CONDS[condIdx].full;
                 document.getElementById('ty-wtp').textContent = '₹' + (R.WTP_BDM || '—');
-                console.log('FINAL RESPONSE DATA:', JSON.stringify(R, null, 2));
+                console.log('FINAL RESPONSE DATA:');
+                console.table(R);
                 submitToSheets(); // Submit on completion
             }
             showPage(PAGE_IDS[curPage]);
@@ -1943,7 +1964,7 @@
 
         function resetSurvey() {
             if (!confirm('This will restart the survey and clear all your answers. Continue?')) return;
-            R = {};
+            initResponses();
             curPage = 0;
             // Clear radio buttons and inputs
             document.querySelectorAll('input[type=radio]').forEach(r => r.checked = false);
@@ -2023,10 +2044,30 @@
         // SAVE
         // ═══════════════════════════════════════════
         function save() {
+            // General Metadata (always updated)
             R.CONDITION = CONDS[condIdx].id;
             R.CONDITION_LABEL = CONDS[condIdx].full;
             R.STUDY = CONDS[condIdx].study;
-            if (curPage === 5) R.WTP_BDM = +document.getElementById('wtp-val').value;
+
+            // Page-specific data (Incremental capture)
+            if (curPage === 1) {
+                // Screener responses are already set by yn() handler, 
+                // but we ensure they are captured if handled differently
+            }
+            if (curPage === 3 || curPage === 4 || curPage === 6) {
+                const keysToRead = [
+                    'SC1', 'SC2', 'SC3', 'SC4', 'SE1', 'SE2', 'SE3', 'SE4', 'TRUST1', 'TRUST2', 'TRUST3', 'TRUST4',
+                    'LTV1', 'LTV2', 'LTV3', 'LTV4', 'PERS1', 'PERS2', 'PERS3', 'HI1', 'HI2', 'HI3', 'HI4',
+                    'DL1', 'DL2', 'DL3', 'AICAP1', 'AICAP2', 'AICAP3'
+                ];
+                keysToRead.forEach(id => {
+                    const el = document.querySelector('#' + id + ' input[type=radio]:checked');
+                    if (el) R[id] = el.value;
+                });
+            }
+            if (curPage === 5) {
+                R.WTP_BDM = +document.getElementById('wtp-val').value;
+            }
             if (curPage === 6) {
                 R.CAREGIVER_STATUS = R.cg || '';
                 R.CONDITION_TYPE = R.ct || '';
@@ -2037,13 +2078,6 @@
                 R.INCOME = document.getElementById('d-income').value;
                 R.OCCUPATION = document.getElementById('d-occ').value;
                 R.CITY = document.getElementById('d-city').value;
-                ['SC1', 'SC2', 'SC3', 'SC4', 'SE1', 'SE2', 'SE3', 'SE4', 'TRUST1', 'TRUST2', 'TRUST3', 'TRUST4',
-                    'LTV1', 'LTV2', 'LTV3', 'LTV4', 'PERS1', 'PERS2', 'PERS3', 'HI1', 'HI2', 'HI3', 'HI4',
-                    'DL1', 'DL2', 'DL3', 'AC1', 'AC2', 'CC1', 'CC2', 'AICAP1', 'AICAP2', 'AICAP3'].forEach(id => {
-                        const el = document.querySelector('#' + id + ' input[type=radio]:checked') ||
-                            document.getElementById(id + '_v');
-                        if (el) R[id] = el.value;
-                    });
             }
         }
 
