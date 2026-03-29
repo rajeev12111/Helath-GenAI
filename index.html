@@ -230,7 +230,7 @@
 
         /* ── VARIABLE CHIPS (subtle label showing spreadsheet column name — small enough not to distract participants) ── */
         .var-chip {
-            display: inline-block;
+            display: none;
             font-size: 9px;
             font-weight: 600;
             background: var(--gray7);
@@ -1035,7 +1035,6 @@
         <button class="demo-btn" onclick="setDemo(14,this)" title="S2-1 — Basic Gen AI">S1</button>
         <button class="demo-btn" onclick="setDemo(15,this)" title="S2-2 — Personalised Gen AI">S2</button>
         <button class="demo-btn" onclick="setDemo(16,this)" title="S2-3 — Adaptive Gen AI">S3</button>
-     
     </div>
 
     <!-- ══════════════════════════════════════
@@ -1050,7 +1049,7 @@
                 <div class="welcome-pills">
                     <span class="welcome-pill">8 to 10 minutes</span>
                     <span class="welcome-pill">Fully anonymous</span>
-               
+
                 </div>
             </div>
             <div class="info-row">
@@ -1070,17 +1069,17 @@
             <div class="card">
                 <div class="card-label">What you will do</div>
                 <div style="font-size:13.5px;color:var(--gray2);line-height:1.8;margin-top:8px">
-                    <p style="margin-bottom:8px">1. Answer two quick eligibility questions.</p>
-                    <p style="margin-bottom:8px">2. Read a short health advisory message as if you were actually
+
+                    <p style="margin-bottom:8px">1. Read a short health advisory message as if you were actually
                         considering this service.</p>
-                    <p style="margin-bottom:8px">3. Answer questions about the advisory, your impressions, and how much
+                    <p style="margin-bottom:8px">2. Answer questions about the advisory, your impressions, and how much
                         you would pay.</p>
-                    <p>4. Tell us a little about yourself.</p>
+                    <p>3. Tell us a little about yourself.</p>
                 </div>
             </div>
             <div class="card" style="background:var(--amber-l);border-color:var(--amber-b)">
                 <div style="font-size:13px;color:var(--amber-t);line-height:1.7"><strong>Important:</strong> There are
-                    no right or wrong answers. Please respond based on your  opinions and reactions. Your
+                    no right or wrong answers. Please respond based on your genuine opinions and reactions. Your
                     responses are completely anonymous and will only be used for academic research.</div>
             </div>
         </div>
@@ -1093,13 +1092,16 @@
         <div class="main">
             <div class="sec-chip">Section 1 of 6 — About You</div>
             <div class="sec-title">Tell us a little about yourself</div>
-            <div class="sec-sub">Before we begin, we'd like to understand your health habits and interests. Your responses are completely anonymous and will take less than a minute.</div>
+            <div class="sec-sub">Before we begin, we'd like to understand your health habits and interests. Your
+                responses are completely anonymous and will take less than a minute.</div>
 
             <!-- Q1: CONSUME -->
             <div class="card">
                 <div class="var-chip">SCREENER_CONSUME</div>
-                <div class="card-label">Q1. Do you regularly consume online health information? <span class="comp">*</span></div>
-                <div class="card-sub">This includes reading health articles, watching wellness videos, or using health-related apps.</div>
+                <div class="card-label">Q1. Do you regularly consume online health information? <span
+                        class="comp">*</span></div>
+                <div class="card-sub">This includes reading health articles, watching wellness videos, or using
+                    health-related apps.</div>
                 <div class="yn-row">
                     <div class="yn-btn" id="SCREENER_CONSUMEy" onclick="ynScreener('SCREENER_CONSUME','y')">Yes</div>
                     <div class="yn-btn" id="SCREENER_CONSUMEn" onclick="ynScreener('SCREENER_CONSUME','n')">No</div>
@@ -1110,10 +1112,12 @@
             <div id="q1b-wrap" style="display:none; margin-bottom: 24px;">
                 <div class="card" style="border-left: 4px solid var(--primary);">
                     <div class="var-chip">SCREENER_FREQ</div>
-                    <div class="card-label">How frequently do you consume this information? <span class="comp">*</span></div>
+                    <div class="card-label">How frequently do you consume this information? <span class="comp">*</span>
+                    </div>
                     <div class="mc-wrap" style="grid-template-columns: repeat(2, 1fr); gap: 10px;">
                         <div class="mc-opt" id="FREQ_Daily" onclick="mcScreener(this, 'SCREENER_FREQ')">Daily</div>
-                        <div class="mc-opt" id="FREQ_23" onclick="mcScreener(this, 'SCREENER_FREQ')">2–3 times per week</div>
+                        <div class="mc-opt" id="FREQ_23" onclick="mcScreener(this, 'SCREENER_FREQ')">2–3 times per week
+                        </div>
                         <div class="mc-opt" id="FREQ_Weekly" onclick="mcScreener(this, 'SCREENER_FREQ')">Weekly</div>
                         <div class="mc-opt" id="FREQ_Monthly" onclick="mcScreener(this, 'SCREENER_FREQ')">Monthly</div>
                     </div>
@@ -1123,14 +1127,20 @@
             <!-- Q2: MANAGE (Multi-select) -->
             <div class="card">
                 <div class="var-chip">SCREENER_MANAGE</div>
-                <div class="card-label">Q2. Are you currently managing any of the following for self/near ones? (Select all that apply) <span class="comp">*</span></div>
+                <div class="card-label">Q2. Are you currently managing any of the following for self/near ones? (Select
+                    all that apply) <span class="comp">*</span></div>
                 <div class="card-sub">You may select multiple categories that apply to your current activities.</div>
                 <div class="mc-wrap" style="grid-template-columns: 1fr; gap: 8px;">
-                    <div class="mc-opt mult" onclick="toggleManage(this, 'Fitness & Exercise Tracking')">Fitness & Exercise Tracking</div>
-                    <div class="mc-opt mult" onclick="toggleManage(this, 'Diet, Nutrition, or Weight Management')">Diet, Nutrition, or Weight Management</div>
-                    <div class="mc-opt mult" onclick="toggleManage(this, 'Chronic Health Conditions')">Chronic Health Conditions</div>
-                    <div class="mc-opt mult" onclick="toggleManage(this, 'Mental Health & Wellness')">Mental Health & Wellness</div>
-                    <div class="mc-opt mult none" onclick="toggleManage(this, 'None of the above')">None of the above</div>
+                    <div class="mc-opt mult" onclick="toggleManage(this, 'Fitness & Exercise Tracking')">Fitness &
+                        Exercise Tracking</div>
+                    <div class="mc-opt mult" onclick="toggleManage(this, 'Diet, Nutrition, or Weight Management')">Diet,
+                        Nutrition, or Weight Management</div>
+                    <div class="mc-opt mult" onclick="toggleManage(this, 'Chronic Health Conditions')">Chronic Health
+                        Conditions</div>
+                    <div class="mc-opt mult" onclick="toggleManage(this, 'Mental Health & Wellness')">Mental Health &
+                        Wellness</div>
+                    <div class="mc-opt mult none" onclick="toggleManage(this, 'None of the above')">None of the above
+                    </div>
                 </div>
             </div>
         </div>
@@ -1195,27 +1205,27 @@
             <div class="card">
                 <div class="var-chip">SOURCE_CHECK_1 to SOURCE_CHECK_4</div>
                 <div class="card-label">Rate each statement about the source of the advisory</div>
-                <div class="card-sub">1 = Strongly Disagree, 7 = Strongly Agree</div>
+
                 <div class="lk-item">
-                    <div class="lk-q"><strong>SC1.</strong> The source of this information is a doctor. <span
+                    <div class="lk-q"><strong>1.</strong> The source of this information is a doctor. <span
                             class="comp">*</span></div>
                     <div class="lk-row" id="SC1"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>SC2.</strong> The source of this information is an AI assistant. <span
+                    <div class="lk-q"><strong>2.</strong> The source of this information is an AI assistant. <span
                             class="comp">*</span></div>
                     <div class="lk-row" id="SC2"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>SC3.</strong> The source of this advisory has medical expertise. <span
+                    <div class="lk-q"><strong>3.</strong> The source of this advisory has medical expertise. <span
                             class="comp">*</span></div>
                     <div class="lk-row" id="SC3"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>SC4.</strong> The source of this advisory is automated and data-driven.
+                    <div class="lk-q"><strong>4.</strong> The source of this advisory is automated and data-driven.
                         <span class="comp">*</span>
                     </div>
                     <div class="lk-row" id="SC4"></div>
@@ -1243,33 +1253,28 @@
             <div class="sec-sub">Rate each statement on a scale of 1 (Strongly Disagree) to 7 (Strongly Agree) based on
                 your reaction to the advisory you read.</div>
 
-            <!-- SELF-EFFICACY -->
             <div class="card">
-                <div class="var-chip">SELF_EFFICACY — SE_1 to SE_4</div>
-                <div class="card-label">Self-Efficacy</div>
-                <div class="card-sub">How capable do you feel after reading this advisory? (1 = Strongly Disagree, 7 =
-                    Strongly Agree)</div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>SE1.</strong> I am confident I can follow the health guidance provided.
+                    <div class="lk-q"><strong>1.</strong> I am confident I can follow the health guidance provided.
                         <span class="comp">*</span>
                     </div>
                     <div class="lk-row" id="SE1"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>SE2.</strong> I believe I can successfully manage my health with this
+                    <div class="lk-q"><strong>2.</strong> I believe I can successfully manage my health with this
                         support. <span class="comp">*</span></div>
                     <div class="lk-row" id="SE2"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>SE3.</strong> I feel capable of taking the recommended actions. <span
+                    <div class="lk-q"><strong>3.</strong> I feel capable of taking the recommended actions. <span
                             class="comp">*</span></div>
                     <div class="lk-row" id="SE3"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>SE4.</strong> This service makes me feel more in control of my health.
+                    <div class="lk-q"><strong>4.</strong> This service makes me feel more in control of my health.
                         <span class="comp">*</span>
                     </div>
                     <div class="lk-row" id="SE4"></div>
@@ -1277,66 +1282,56 @@
                 </div>
             </div>
 
-            <!-- TRUST -->
             <div class="card">
-                <div class="var-chip">TRUST — TRUST_1 to TRUST_4</div>
-                <div class="card-label">Trust</div>
-                <div class="card-sub">How much do you trust this advisory and its source? (1 = Strongly Disagree, 7 =
-                    Strongly Agree)</div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>TRUST1.</strong> I trust the health information provided in this advisory.
+                    <div class="lk-q"><strong>5.</strong> I trust the health information provided in this advisory.
                         <span class="comp">*</span>
                     </div>
                     <div class="lk-row" id="TRUST1"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>TRUST2.</strong> The source of this advisory is reliable. <span
+                    <div class="lk-q"><strong>6.</strong> The source of this advisory is reliable. <span
                             class="comp">*</span></div>
                     <div class="lk-row" id="TRUST2"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>TRUST3.</strong> The guidance provided in this advisory is accurate. <span
+                    <div class="lk-q"><strong>7.</strong> The guidance provided in this advisory is accurate. <span
                             class="comp">*</span></div>
                     <div class="lk-row" id="TRUST3"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>TRUST4.</strong> The source of this advisory has my best interests in
+                    <div class="lk-q"><strong>8.</strong> The source of this advisory has my best interests in
                         mind. <span class="comp">*</span></div>
                     <div class="lk-row" id="TRUST4"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
             </div>
 
-            <!-- LTV -->
             <div class="card">
-                <div class="var-chip">PERCEIVED_LONG_TERM_VALUE — LTV_1 to LTV_4</div>
-                <div class="card-label">Perceived Long-Term Value</div>
-                <div class="card-sub">Do you see long-term value in this service? (1 = Strongly Disagree, 7 = Strongly
-                    Agree)</div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>LTV1.</strong> This service will help me maintain health gains over time.
+                    <div class="lk-q"><strong>9.</strong> This service will help me maintain health gains over time.
                         <span class="comp">*</span>
                     </div>
                     <div class="lk-row" id="LTV1"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>LTV2.</strong> The value of this service grows the longer I use it. <span
+                    <div class="lk-q"><strong>10.</strong> The value of this service grows the longer I use it. <span
                             class="comp">*</span></div>
                     <div class="lk-row" id="LTV2"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>LTV3.</strong> Ongoing support from this service prevents me from losing
+                    <div class="lk-q"><strong>11.</strong> Ongoing support from this service prevents me from losing
                         progress. <span class="comp">*</span></div>
                     <div class="lk-row" id="LTV3"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>LTV4.</strong> This is a service I would stick with over the long term.
+                    <div class="lk-q"><strong>12.</strong> This is a service I would stick with over the long term.
                         <span class="comp">*</span>
                     </div>
                     <div class="lk-row" id="LTV4"></div>
@@ -1344,26 +1339,21 @@
                 </div>
             </div>
 
-            <!-- PERSONALIZATION -->
             <div class="card">
-                <div class="var-chip">PERCEIVED_PERSONALIZATION — PERS_1 to PERS_3</div>
-                <div class="card-label">Perceived Personalization</div>
-                <div class="card-sub">Does this advisory feel tailored to you? (1 = Strongly Disagree, 7 = Strongly
-                    Agree)</div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>PERS1.</strong> The advice feels tailored to my specific situation. <span
+                    <div class="lk-q"><strong>13.</strong> The advice feels tailored to my specific situation. <span
                             class="comp">*</span></div>
                     <div class="lk-row" id="PERS1"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>PERS2.</strong> This service understands my specific health needs. <span
+                    <div class="lk-q"><strong>14.</strong> This service understands my specific health needs. <span
                             class="comp">*</span></div>
                     <div class="lk-row" id="PERS2"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>PERS3.</strong> The guidance in this advisory seems customized for me
+                    <div class="lk-q"><strong>15.</strong> The guidance in this advisory seems customized for me
                         personally. <span class="comp">*</span></div>
                     <div class="lk-row" id="PERS3"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
@@ -1417,57 +1407,49 @@
             <div class="sec-sub">All responses are anonymous. This information helps us understand patterns in the data.
             </div>
 
-            <!-- HEALTH INVOLVEMENT -->
             <div class="card">
-                <div class="var-chip">HEALTH_INVOLVEMENT — HI_1 to HI_4</div>
-                <div class="card-label">Health Involvement</div>
-                <div class="card-sub">1 = Strongly Disagree, 7 = Strongly Agree</div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>HI1.</strong> My health is a top priority in my daily life. <span
+                    <div class="lk-q"><strong>1.</strong> My health is a top priority in my daily life. <span
                             class="comp">*</span></div>
                     <div class="lk-row" id="HI1"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>HI2.</strong> I think about my health frequently throughout the day. <span
+                    <div class="lk-q"><strong>2.</strong> I think about my health frequently throughout the day. <span
                             class="comp">*</span></div>
                     <div class="lk-row" id="HI2"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>HI3.</strong> I actively seek out health information on a regular basis.
+                    <div class="lk-q"><strong>3.</strong> I actively seek out health information on a regular basis.
                         <span class="comp">*</span>
                     </div>
                     <div class="lk-row" id="HI3"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>HI4.</strong> Managing my health is important to me. <span
+                    <div class="lk-q"><strong>4.</strong> Managing my health is important to me. <span
                             class="comp">*</span></div>
                     <div class="lk-row" id="HI4"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
             </div>
 
-            <!-- DIGITAL LITERACY -->
             <div class="card">
-                <div class="var-chip">DIGITAL_LITERACY — DL_1 to DL_3</div>
-                <div class="card-label">Digital Literacy</div>
-                <div class="card-sub">1 = Strongly Disagree, 6 = Strongly Agree</div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>DL1.</strong> I am comfortable using digital apps on my smartphone. <span
+                    <div class="lk-q"><strong>5.</strong> I am comfortable using digital apps on my smartphone. <span
                             class="comp">*</span></div>
                     <div class="lk-row" id="DL1"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>DL2.</strong> I frequently use smartphone apps in my daily life. <span
+                    <div class="lk-q"><strong>6.</strong> I frequently use smartphone apps in my daily life. <span
                             class="comp">*</span></div>
                     <div class="lk-row" id="DL2"></div>
                     <div class="lk-ends"><span>Strongly Disagree</span><span>Strongly Agree</span></div>
                 </div>
                 <div class="lk-item">
-                    <div class="lk-q"><strong>DL3.</strong> I feel confident navigating new digital platforms and apps.
+                    <div class="lk-q"><strong>7.</strong> I feel confident navigating new digital platforms and apps.
                         <span class="comp">*</span>
                     </div>
                     <div class="lk-row" id="DL3"></div>
@@ -1583,7 +1565,8 @@
                         <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
                     </svg></div>
                 <div class="ty-title">Thank you!</div>
-                <div class="ty-sub">Your responses have been recorded. This study examines how people perceive and pay for digital health advisory services. Your participation is greatly appreciated.</div>
+                <div class="ty-sub">Your responses have been recorded. This study examines how people perceive and pay
+                    for digital health advisory services. Your participation is greatly appreciated.</div>
                 <div class="ty-summary">
                     <div
                         style="font-size:11px;font-weight:700;color:var(--blue2);text-transform:uppercase;letter-spacing:.4px;margin-bottom:12px">
@@ -1608,7 +1591,7 @@
                         Review Responses</button>
                 </div>
                 <div style="margin-top:20px;font-size:12px;color:var(--gray4)">If you have questions, contact:
-                   rajeevray12345@gmail.com</div>
+                    rajeevray12345@gmail.com</div>
             </div>
         </div>
     </div>
@@ -1984,7 +1967,7 @@
         }
 
         // REPLACE THIS with your Google Apps Script Web App URL
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx9dgaeiNzyM0deOk-Urw5AisvUEBm7Gvt55mHwbhXmApeq_r3JAj5yAvxSgOgZLgsfmQ/exec";
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyw8PnUNkhE3KxNs-YGIOTeUyglunIYCwUgvoAcvHnjW65pkzG5MbqT4HPhUx8MvpzH/exec";
 
         // ═══════════════════════════════════════════
         // RESEARCHER DEMO
@@ -2148,12 +2131,11 @@
             return true;
         }
 
-        async function submitToSheets() {
+        function submitToSheets() {
             const statusEl = document.getElementById('sync-status');
             if (!SCRIPT_URL) {
-                console.warn('No SCRIPT_URL configured. Data not sent to Google Sheets.');
                 if (statusEl) {
-                    statusEl.textContent = '⚠️ Google Sheets Link Missing (See Script Guide)';
+                    statusEl.textContent = '⚠️ Google Sheets Link Missing';
                     statusEl.style.background = '#fee2e2';
                     statusEl.style.color = '#991b1b';
                 }
@@ -2174,20 +2156,52 @@
                 statusEl.style.color = '#92400e';
             }
 
+            // Filter out internal flags
+            const payload = {};
+            Object.keys(R).forEach(k => { if (!k.startsWith('_')) payload[k] = R[k]; });
+
+            // === HIDDEN IFRAME + FORM (bypasses all CORS issues) ===
             try {
-                const response = await fetch(SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    cache: 'no-cache',
-                    body: JSON.stringify(R)
-                });
-                R._submitted = true;
-                console.log('Data submitted to Google Sheets.');
-                if (statusEl) {
-                    statusEl.textContent = '✅ Data Stored Online Successfully';
-                    statusEl.style.background = '#dcfce7';
-                    statusEl.style.color = '#166534';
+                // Create hidden iframe
+                let iframe = document.getElementById('gs-iframe');
+                if (!iframe) {
+                    iframe = document.createElement('iframe');
+                    iframe.id = 'gs-iframe';
+                    iframe.name = 'gs-iframe';
+                    iframe.style.display = 'none';
+                    document.body.appendChild(iframe);
                 }
+
+                // Create hidden form
+                const form = document.createElement('form');
+                form.method = 'POST';
+                form.action = SCRIPT_URL;
+                form.target = 'gs-iframe'; // submit into hidden iframe
+                form.style.display = 'none';
+
+                // Add data as a hidden field
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = 'data';
+                input.value = JSON.stringify(payload);
+                form.appendChild(input);
+
+                document.body.appendChild(form);
+                form.submit();
+                document.body.removeChild(form);
+
+                // Mark as submitted after a short delay
+                R._submitted = true;
+                console.log('Data submitted to Google Sheets via form POST.');
+
+                setTimeout(function () {
+                    if (statusEl) {
+                        statusEl.textContent = '✅ Data Stored Online Successfully';
+                        statusEl.style.background = '#dcfce7';
+                        statusEl.style.color = '#166534';
+                    }
+                }, 3000);
+
             } catch (e) {
                 console.error('Submission failed:', e);
                 if (statusEl) {
