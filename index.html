@@ -1565,21 +1565,17 @@
                         <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
                     </svg></div>
                 <div class="ty-title">Thank you!</div>
-            
-                    <div id="sync-status"
-                        style="margin-top:10px;font-size:11px;font-weight:600;padding:6px 10px;border-radius:6px;background:var(--gray6);color:var(--gray3);text-align:center">
-                        Checking online sync...
-                    </div>
-                </div>
-                <div style="margin-top:24px">
-                    <button class="btn-next" onclick="downloadCSV()" style="width:100%;margin-bottom:12px">Download My
-                        Data (Excel/CSV)</button>
+                <div class="ty-sub">Your responses have been recorded. This study examines how people perceive and pay
+                    for digital health advisory services. Your participation is greatly appreciated.</div>
+                <!-- Hidden elements for JS compatibility -->
+                <span id="ty-cond" style="display:none"></span>
+                <span id="ty-wtp" style="display:none"></span>
+                <div id="sync-status" style="display:none"></div>
+                <div style="margin-top:28px">
                     <button class="btn-back" onclick="goBack()"
-                        style="width:100%;background:white;color:var(--gra3);border:1.5px solid var(--gray5)">Back to
+                        style="width:100%;background:white;color:var(--gray3);border:1.5px solid var(--gray5)">Back to
                         Review Responses</button>
                 </div>
-                <div style="margin-top:20px;font-size:12px;color:var(--gray4)">If you have questions, contact:
-                    rajeevray12345@gmail.com</div>
             </div>
         </div>
     </div>
@@ -1801,7 +1797,7 @@
                 id: 12, study: 1, label: 'S1C12', full: 'Study 1 — Gen AI Assisted Doctor + Action',
                 src: 'doc', appeal: 'action',
                 bb: '#fae8ff', bc: '#a21caf', bt: 'C12 | Gen AI Asst Action',
-                sn: "Dr. Meera's Gen AI Assistant", sr: 'Gen AI trained on large-scale medical data',
+                sn: "Dr. Meera's Gen AI Assistant", sr: 'I am Gen AI assistant of Dr Meera. I have been trained on the real clinical records of patients she has treated over the years, and I also understand his treatment approach. I have generated recommendation based on my training on the clinical records and her treatment approach',
                 vb: 'Medical Data-Trained Gen AI Assistant', vbg: '#fae8ff', vbc: '#a21caf',
                 title: 'Your Weekly Blood Sugar Action Plan',
                 intro: 'Using my Gen AI assistant to analyze trends in large volumes of medical data, I have created this plan for you. Managing blood sugar works best when you have a clear plan to follow each day. Here is your action plan for this week:',
