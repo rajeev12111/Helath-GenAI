@@ -1048,7 +1048,7 @@
                 <div class="welcome-pills">
                     <span class="welcome-pill">8 to 10 minutes</span>
                     <span class="welcome-pill">Fully anonymous</span>
-        
+                   
                 </div>
             </div>
             <div class="info-row">
@@ -1606,7 +1606,7 @@
                         Review Responses</button>
                 </div>
                 <div style="margin-top:20px;font-size:12px;color:var(--gray4)">If you have questions, contact:
-                    rajeevray12345@gmail.com</div>
+                   rajeevray12345@gmail.com</div>
             </div>
         </div>
     </div>
@@ -1943,7 +1943,7 @@
                 'S2_AICAP1', 'S2_AICAP2', 'S2_AICAP3', 'S2_WTP',
                 'S2_SE1', 'S2_SE2', 'S2_SE3', 'S2_SE4', 'S2_TRUST1', 'S2_TRUST2', 'S2_TRUST3', 'S2_TRUST4',
                 'S2_LTV1', 'S2_LTV2', 'S2_LTV3', 'S2_LTV4', 'S2_PERS1', 'S2_PERS2', 'S2_PERS3',
-                'SCREENER_CONSUME', 'SCREENER_FREQ', 'SCREENER_MANAGE', 'HI1', 'HI2', 'HI3', 'HI4', 'DL1', 'DL2', 'DL3',
+                'TIMESTAMP', 'SCREENER_CONSUME', 'SCREENER_FREQ', 'SCREENER_MANAGE', 'HI1', 'HI2', 'HI3', 'HI4', 'DL1', 'DL2', 'DL3',
                 'CAREGIVER_STATUS', 'CONDITION_TYPE', 'PRIOR_SUBSCRIPTION',
                 'AGE', 'GENDER', 'EDUCATION', 'INCOME', 'OCCUPATION', 'CITY'
             ];
@@ -1982,7 +1982,7 @@
         }
 
         // REPLACE THIS with your Google Apps Script Web App URL
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx9dgaeiNzyM0deOk-Urw5AisvUEBm7Gvt55mHwbhXmApeq_r3JAj5yAvxSgOgZLgsfmQ/exec";
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzbO4_e8DSBW9oFkILsZiPR8r7ZHYG1_CSht55cP5iauTK6WeqdpXh4W38J98WGDxAK/exec";
 
         // ═══════════════════════════════════════════
         // RESEARCHER DEMO
@@ -2233,7 +2233,8 @@
             }
 
             if (curPage === 1) {
-                const sel = Array.from(document.querySelectorAll('#pg1 .mc-opt.sel')).map(el => el.textContent.trim());
+                // Only grab management area selections (.mult), not the frequency selection
+                const sel = Array.from(document.querySelectorAll('#pg1 .mc-opt.mult.sel')).map(el => el.textContent.trim());
                 R.SCREENER_MANAGE = sel.join(', ');
             }
             if (study && (curPage === 3 || curPage === 7 || curPage === 4 || curPage === 8)) {
@@ -2266,6 +2267,8 @@
                 R.INCOME = document.getElementById('d-income').value;
                 R.OCCUPATION = document.getElementById('d-occ').value;
                 R.CITY = document.getElementById('d-city').value;
+                // Set submission timestamp (IST)
+                R.TIMESTAMP = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
             }
         }
 
