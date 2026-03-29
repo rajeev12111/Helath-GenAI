@@ -227,18 +227,19 @@
             margin-bottom: 16px
         }
 
-        /* ── VARIABLE CHIPS (hidden from participants — labels kept in HTML source for backend/spreadsheet reference) ── */
+        /* ── VARIABLE CHIPS (subtle label showing spreadsheet column name — small enough not to distract participants) ── */
         .var-chip {
-            display: none; /* Hidden from front-end. Variable names visible in page source & spreadsheet headers. */
-            font-size: 10px;
+            display: inline-block;
+            font-size: 9px;
             font-weight: 600;
             background: var(--gray7);
-            color: var(--gray3);
-            padding: 2px 8px;
-            border-radius: 6px;
-            margin-bottom: 8px;
-            letter-spacing: .2px;
-            font-family: monospace
+            color: var(--gray4);
+            padding: 1px 6px;
+            border-radius: 4px;
+            margin-bottom: 6px;
+            letter-spacing: .3px;
+            font-family: monospace;
+            opacity: 0.65;
         }
 
         /* ── PHONE FRAME ── */
@@ -1048,7 +1049,7 @@
                 <div class="welcome-pills">
                     <span class="welcome-pill">8 to 10 minutes</span>
                     <span class="welcome-pill">Fully anonymous</span>
-                   
+                    
                 </div>
             </div>
             <div class="info-row">
@@ -1606,7 +1607,7 @@
                         Review Responses</button>
                 </div>
                 <div style="margin-top:20px;font-size:12px;color:var(--gray4)">If you have questions, contact:
-                   rajeevray12345@gmail.com</div>
+                    rajeevray12345@gmail.com</div>
             </div>
         </div>
     </div>
