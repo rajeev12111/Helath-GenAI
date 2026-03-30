@@ -1009,7 +1009,7 @@
                 </svg></div>
             <div class="brand">Health<span>Guide</span> Research</div>
         </div>
-        <div class="step-badge" id="step-badge">Step 1 of 9</div>
+        <div class="step-badge" id="step-badge">Step 1 of 13</div>
     </div>
     <div class="progress-bar">
         <div class="progress-fill" id="prog" style="width:0%"></div>
@@ -1090,7 +1090,6 @@
 ══════════════════════════════════════ -->
     <div class="pg" id="pg1">
         <div class="main">
-            <div class="sec-chip">Section 1 of 6 — About You</div>
             <div class="sec-title">Tell us a little about yourself</div>
             <div class="sec-sub">Before we begin, we'd like to understand your health habits and interests. Your
                 responses are completely anonymous and will take less than a minute.</div>
@@ -1175,7 +1174,6 @@
 ══════════════════════════════════════ -->
     <div class="pg" id="pg2">
         <div class="main">
-            <div class="sec-chip">Section 2 of 6 — Health Advisory</div>
             <div class="sec-title">Please read this health advisory carefully</div>
             <div class="sec-sub">Imagine you are considering subscribing to this digital health service. Read the
                 advisory below as if it were real. You will be asked questions about it on the next page.</div>
@@ -1196,7 +1194,6 @@
 ══════════════════════════════════════ -->
     <div class="pg" id="pg3">
         <div class="main">
-            <div class="sec-chip">Section 3 of 6 — About the Advisory</div>
             <div class="sec-title">Questions about what you just read</div>
             <div class="sec-sub">Please answer based only on the health advisory you just saw. There are no right or
                 wrong answers.</div>
@@ -1248,7 +1245,6 @@
 ══════════════════════════════════════ -->
     <div class="pg" id="pg4">
         <div class="main">
-            <div class="sec-chip">Section 4 of 6 — Your Impressions</div>
             <div class="sec-title">How did the advisory make you feel?</div>
             <div class="sec-sub">Rate each statement on a scale of 1 (Strongly Disagree) to 7 (Strongly Agree) based on
                 your reaction to the advisory you read.</div>
@@ -1367,7 +1363,6 @@
 ══════════════════════════════════════ -->
     <div class="pg" id="pg5">
         <div class="main">
-            <div class="sec-chip">Section 5 of 6 — Willingness to Pay</div>
             <div class="sec-title">How much would you pay for this service? <span class="comp">*</span></div>
             <div class="sec-sub">This question uses a special method to get your honest maximum. Please read the
                 instructions carefully before entering your amount.</div>
@@ -1377,7 +1372,7 @@
                 <div class="card-label">Maximum Monthly Payment</div>
                 <div style="height:12px"></div>
                 <div class="wtp-box">
-                    <strong></strong><br><br>
+                    <strong>How this works (BDM method):</strong><br><br>
                     Enter the maximum amount you would be willing to pay per month for this health service (between ₹0
                     and ₹2,000).<br><br>
                     After you submit, our system will randomly generate a price. If your amount is <strong>equal to or
@@ -1398,11 +1393,32 @@
     </div>
 
     <!-- ══════════════════════════════════════
+     PAGE 5b — TRANSITION / REFLECTION
+    ══════════════════════════════════════ -->
+    <div class="pg" id="pg_trans">
+        <div class="main">
+            <div class="sec-title">Review Part 1 Complete</div>
+            <div class="sec-sub">Thank you for your feedback on the first health advisory. Before we move to the next part of the study, please share any brief thoughts or impressions you had about the advisory you just reviewed.</div>
+
+            <div class="card">
+                <div class="card-label">Your thoughts (Optional)</div>
+                <textarea class="f-input" id="s1-thoughts" style="height: 120px; padding: 12px; resize: none;" 
+                    placeholder="Type your thoughts here..."></textarea>
+            </div>
+
+            <div class="card" style="background:var(--blue-l); border-color:var(--blue-b)">
+                <div style="font-size:13px; color:var(--blue); line-height:1.7">
+                    Click <strong>Continue</strong> to proceed to the second health advisory.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
      PAGE 6 — MODERATORS + DEMOGRAPHICS
 ══════════════════════════════════════ -->
     <div class="pg" id="pg6">
         <div class="main">
-            <div class="sec-chip">Section 6 of 6 — About You</div>
             <div class="sec-title">A few final questions</div>
             <div class="sec-sub">All responses are anonymous. This information helps us understand patterns in the data.
             </div>
@@ -1583,7 +1599,7 @@
     <!-- NAV BAR -->
     <div class="nav-fixed" id="nav-fixed">
         <button class="btn-back" id="btn-back" onclick="goBack()" style="visibility:hidden">Back</button>
-        <div class="nav-info" id="nav-info">Step 1 of 9</div>
+        <div class="nav-info" id="nav-info">Step 1 of 13</div>
         <button class="btn-next" id="btn-next" onclick="goNext()">Begin Survey</button>
     </div>
 
@@ -1741,7 +1757,7 @@
                 id: 9, study: 1, label: 'S1C9', full: 'Study 1 — Doctor Approved Gen AI + Action',
                 src: 'ai', appeal: 'action',
                 bb: '#e0e7ff', bc: '#4f46e5', bt: 'C9 | Doc-Apprv Action',
-                sn: 'HealthGuide Gen AI (Doctor Approved)', sr: 'I am a Gen-AI trained on vast amounts of credible medical data from real patients and trusted sources.',
+                sn: 'HealthGuide Gen AI (Doctor Approved)', sr: 'Gen AI trained on large-scale medical data (Approved)',
                 vb: 'Medical Data-Trained Gen AI (Clinically Approved)', vbg: '#e0e7ff', vbc: '#4f46e5',
                 title: 'Your Weekly Blood Sugar Action Plan',
                 intro: 'This plan was generated by our Gen AI using trend analysis of large volumes of medical data and has been clinically approved by Dr. Sharma. Managing blood sugar works best when you have a clear plan to follow each day. Here is your action plan for this week:',
@@ -1761,7 +1777,7 @@
                 id: 10, study: 1, label: 'S1C10', full: 'Study 1 — Doctor Approved Gen AI + Continuity',
                 src: 'ai', appeal: 'cont',
                 bb: '#e0e7ff', bc: '#4f46e5', bt: 'C10 | Doc-Apprv Cont.',
-                sn: 'HealthGuide Gen AI (Doctor Approved)', sr: 'I am a Gen-AI trained on vast amounts of credible medical data from real patients and trusted sources.',
+                sn: 'HealthGuide Gen AI (Doctor Approved)', sr: 'Gen AI trained on large-scale medical data (Approved)',
                 vb: 'Medical Data-Trained Gen AI (Clinically Approved)', vbg: '#e0e7ff', vbc: '#4f46e5',
                 title: 'Staying Consistent is Your Most Powerful Health Tool',
                 body: ['This advisory was generated by our Gen AI using trend analysis of large volumes of medical data and has been clinically approved by Dr. Sharma.',
@@ -1777,7 +1793,7 @@
                 id: 11, study: 1, label: 'S1C11', full: 'Study 1 — Doctor Approved Gen AI + Both Appeals',
                 src: 'ai', appeal: 'both',
                 bb: '#e0e7ff', bc: '#4f46e5', bt: 'C11 | Doc-Apprv Both',
-                sn: 'HealthGuide Gen AI (Doctor Approved)', sr: 'I am a Gen-AI trained on vast amounts of credible medical data from real patients and trusted sources.',
+                sn: 'HealthGuide Gen AI (Doctor Approved)', sr: 'Gen AI trained on large-scale medical data (Approved)',
                 vb: 'Medical Data-Trained Gen AI (Clinically Approved)', vbg: '#e0e7ff', vbc: '#4f46e5',
                 title: 'Your Consistent Action Plan for Long-Term Health',
                 intro: 'This plan was generated by our Gen AI using trend analysis of large volumes of medical data and has been clinically approved by Dr. Sharma. To protect your long-term progress, staying consistent is your most powerful tool. Here is a clear, actionable plan generated by our Gen AI and approved by Dr. Sharma to help you build routine this week:',
@@ -1797,7 +1813,7 @@
                 id: 12, study: 1, label: 'S1C12', full: 'Study 1 — Gen AI Assisted Doctor + Action',
                 src: 'doc', appeal: 'action',
                 bb: '#fae8ff', bc: '#a21caf', bt: 'C12 | Gen AI Asst Action',
-                sn: "Dr. Meera's Gen AI Assistant", sr: 'I am Gen AI assistant of Dr Meera. I have been trained on the real clinical records of patients she has treated over the years, and I also understand his treatment approach. I have generated recommendation based on my training on the clinical records and her treatment approach',
+                sn: "Dr. Meera's Gen AI Assistant", sr: 'Gen AI trained on large-scale medical data',
                 vb: 'Medical Data-Trained Gen AI Assistant', vbg: '#fae8ff', vbc: '#a21caf',
                 title: 'Your Weekly Blood Sugar Action Plan',
                 intro: 'Using my Gen AI assistant to analyze trends in large volumes of medical data, I have created this plan for you. Managing blood sugar works best when you have a clear plan to follow each day. Here is your action plan for this week:',
@@ -1817,7 +1833,7 @@
                 id: 13, study: 1, label: 'S1C13', full: 'Study 1 — Gen AI Assisted Doctor + Continuity',
                 src: 'doc', appeal: 'cont',
                 bb: '#fae8ff', bc: '#a21caf', bt: 'C13 | Gen AI Asst Cont.',
-                sn: "Dr. Meera's Gen AI Assistant", sr: 'I am Gen AI assistant of Dr Meera. I have been trained on the real clinical records of patients she has treated over the years, and I also understand his treatment approach. I have generated recommendation based on my training on the clinical records and her treatment approach',
+                sn: "Dr. Meera's Gen AI Assistant", sr: 'Gen AI trained on large-scale medical data',
                 vb: 'Medical Data-Trained Gen AI Assistant', vbg: '#fae8ff', vbc: '#a21caf',
                 title: 'Staying Consistent is Your Most Powerful Health Tool',
                 body: ['Using my Gen AI assistant to analyze trends in large volumes of medical data, I have created this guidance for you.',
@@ -1833,7 +1849,7 @@
                 id: 14, study: 1, label: 'S1C14', full: 'Study 1 — Gen AI Assisted Doctor + Both Appeals',
                 src: 'doc', appeal: 'both',
                 bb: '#fae8ff', bc: '#a21caf', bt: 'C14 | Gen AI Asst Both',
-                sn: "Dr. Meera's Gen AI Assistant", sr: 'I am Gen AI assistant of Dr Meera. I have been trained on the real clinical records of patients she has treated over the years, and I also understand his treatment approach. I have generated recommendation based on my training on the clinical records and her treatment approach',
+                sn: "Dr. Meera's Gen AI Assistant", sr: 'Gen AI trained on large-scale medical data',
                 vb: 'Medical Data-Trained Gen AI Assistant', vbg: '#fae8ff', vbc: '#a21caf',
                 title: 'Your Consistent Action Plan for Long-Term Health',
                 intro: 'Using my Gen AI assistant to analyze trends in large volumes of medical data, I have created this plan for you. To protect your long-term progress, staying consistent is your most powerful tool. Using my Gen AI assistant, I have created this clear, actionable plan to help you build routine this week:',
@@ -1905,7 +1921,7 @@
             // Initialize all possible keys to ensure consistent Google Sheets columns
             const keys = [
                 'S1_CONDITION', 'S1_CONDITION_LABEL', 'S1_SC1', 'S1_SC2', 'S1_SC3', 'S1_SC4',
-                'S1_AC1', 'S1_AC2', 'S1_CC1', 'S1_CC2', 'S1_WTP',
+                'S1_AC1', 'S1_AC2', 'S1_CC1', 'S1_CC2', 'S1_WTP', 'S1_THOUGHTS',
                 'S1_SE1', 'S1_SE2', 'S1_SE3', 'S1_SE4', 'S1_TRUST1', 'S1_TRUST2', 'S1_TRUST3', 'S1_TRUST4',
                 'S1_LTV1', 'S1_LTV2', 'S1_LTV3', 'S1_LTV4', 'S1_PERS1', 'S1_PERS2', 'S1_PERS3',
                 'S2_CONDITION', 'S2_CONDITION_LABEL', 'S2_SC1', 'S2_SC2', 'S2_SC3', 'S2_SC4',
@@ -1934,14 +1950,14 @@
             }
         });
 
-        const TOTAL_PAGES = 12;
-        const PAGE_IDS = ['pg0', 'pg1', 'pg2', 'pg3', 'pg4', 'pg5', 'pg2', 'pg3', 'pg4', 'pg5', 'pg6', 'pg7'];
-        const PAGE_NAMES = ['Welcome', 'Screener', 'Study 1: Advisory', 'Study 1: Check', 'Study 1: Impression', 'Study 1: WTP', 'Study 2: Advisory', 'Study 2: Check', 'Study 2: Impression', 'Study 2: WTP', 'About You', 'Complete'];
+        const TOTAL_PAGES = 13;
+        const PAGE_IDS = ['pg0', 'pg1', 'pg2', 'pg3', 'pg4', 'pg5', 'pg_trans', 'pg2', 'pg3', 'pg4', 'pg5', 'pg6', 'pg7'];
+        const PAGE_NAMES = ['Welcome', 'Screener', 'Advisory 1', 'Checks 1', 'Impressions 1', 'Valuation 1', 'Reflection', 'Advisory 2', 'Checks 2', 'Impressions 2', 'Valuation 2', 'About You', 'Complete'];
 
         // Helper to get current study context
         function getCurStudy() {
             if (curPage >= 2 && curPage <= 5) return 1;
-            if (curPage >= 6 && curPage <= 9) return 2;
+            if (curPage >= 7 && curPage <= 10) return 2;
             return 0;
         }
 
@@ -1972,13 +1988,13 @@
             document.getElementById('prog').style.width = pct + '%';
             document.getElementById('step-badge').textContent = 'Step ' + (curPage + 1) + ' of ' + TOTAL_PAGES;
             document.getElementById('nav-info').textContent = PAGE_NAMES[curPage] || '';
-            document.getElementById('btn-back').style.visibility = (curPage > 1 && curPage < 11) ? 'visible' : 'hidden'; // Hide back on Welcome/Screener/Final
+            document.getElementById('btn-back').style.visibility = (curPage > 1 && curPage < 12) ? 'visible' : 'hidden'; // Hide back on Welcome/Screener/Final
 
             const nb = document.getElementById('btn-next');
-            nb.style.display = (curPage === 11) ? 'none' : ''; // Hide on final page
+            nb.style.display = (curPage === 12) ? 'none' : ''; // Hide on final page
 
             if (curPage === 0) nb.textContent = 'Begin Survey';
-            else if (curPage === 10) nb.textContent = 'Submit Responses';
+            else if (curPage === 11) nb.textContent = 'Submit Responses';
             else nb.textContent = 'Continue';
         }
 
@@ -2000,16 +2016,16 @@
             curPage++;
 
             // Clear page inputs if repeating blocks
-            if (curPage === 2 || curPage === 6) {
+            if (curPage === 2 || curPage === 7) {
                 document.querySelectorAll('input[type=radio]').forEach(r => r.checked = false);
-                document.querySelectorAll('input[type=number], input[type=text]').forEach(i => i.value = '');
+                document.querySelectorAll('input[type=number], input[type=text], textarea').forEach(i => i.value = '');
                 document.querySelectorAll('.yn-btn, .mc-opt').forEach(b => b.classList.remove('sel', 'sel-y', 'sel-n'));
                 buildStimulus(); buildAppealChecks(); buildAllLikerts();
             }
-            if (curPage === 3 || curPage === 7) {
+            if (curPage === 3 || curPage === 8) {
                 buildAppealChecks();
             }
-            if (curPage === 11) {
+            if (curPage === 12) {
                 const s1 = CONDS[s1CondIdx];
                 const s2 = CONDS[s2CondIdx];
                 document.getElementById('ty-cond').textContent = 'Completed Sequential Study (S1: ' + s1.label + ', S2: ' + s2.label + ')';
@@ -2028,7 +2044,7 @@
             s1CondIdx = Math.floor(Math.random() * 14);
             s2CondIdx = 14 + Math.floor(Math.random() * 3);
             document.querySelectorAll('input[type=radio]').forEach(r => r.checked = false);
-            document.querySelectorAll('input[type=number], input[type=text]').forEach(i => i.value = '');
+            document.querySelectorAll('input[type=number], input[type=text], textarea').forEach(i => i.value = '');
             document.querySelectorAll('.yn-btn, .mc-opt').forEach(b => b.classList.remove('sel', 'sel-y', 'sel-n'));
             document.querySelectorAll('select').forEach(s => s.selectedIndex = 0);
             if (document.getElementById('q1b-wrap')) document.getElementById('q1b-wrap').style.display = 'none';
@@ -2053,7 +2069,7 @@
                     return false;
                 }
             }
-            if (curPage === 3 || curPage === 7) {
+            if (curPage === 3 || curPage === 8) {
                 const sc = ['SC1', 'SC2', 'SC3', 'SC4'];
                 for (let id of sc) {
                     const el = document.querySelector('#' + id + ' input[type=radio]:checked') ||
@@ -2079,7 +2095,7 @@
                     }
                 }
             }
-            if (curPage === 4 || curPage === 8) {
+            if (curPage === 4 || curPage === 9) {
                 const items = ['SE1', 'SE2', 'SE3', 'SE4', 'TRUST1', 'TRUST2', 'TRUST3', 'TRUST4', 'LTV1', 'LTV2', 'LTV3', 'LTV4', 'PERS1', 'PERS2', 'PERS3'];
                 for (let id of items) {
                     const el = document.querySelector('#' + id + ' input[type=radio]:checked') ||
@@ -2089,11 +2105,11 @@
                     }
                 }
             }
-            if (curPage === 5 || curPage === 9) {
+            if (curPage === 5 || curPage === 10) {
                 const v = document.getElementById('wtp-val').value;
                 if (v === '' || isNaN(+v) || +v < 0 || +v > 2000) { alert('Please enter a valid amount between ₹0 and ₹2,000 for Willingness to Pay.'); return false; }
             }
-            if (curPage === 10) {
+            if (curPage === 11) {
                 const lk = ['HI1', 'HI2', 'HI3', 'HI4', 'DL1', 'DL2', 'DL3'];
                 for (let id of lk) {
                     if (!document.querySelector('#' + id + ' input[type=radio]:checked')) {
@@ -2236,7 +2252,10 @@
                 const sel = Array.from(document.querySelectorAll('#pg1 .mc-opt.mult.sel')).map(el => el.textContent.trim());
                 R.SCREENER_MANAGE = sel.join(', ');
             }
-            if (study && (curPage === 3 || curPage === 7 || curPage === 4 || curPage === 8)) {
+            if (curPage === 6) {
+                R.S1_THOUGHTS = document.getElementById('s1-thoughts').value;
+            }
+            if (study && (curPage === 3 || curPage === 8 || curPage === 4 || curPage === 9)) {
                 const radioIds = [
                     'SC1', 'SC2', 'SC3', 'SC4', 'SE1', 'SE2', 'SE3', 'SE4', 'TRUST1', 'TRUST2', 'TRUST3', 'TRUST4',
                     'LTV1', 'LTV2', 'LTV3', 'LTV4', 'PERS1', 'PERS2', 'PERS3', 'AICAP1', 'AICAP2', 'AICAP3'
@@ -2248,10 +2267,10 @@
                     if (el) R[pre + id] = el.value;
                 });
             }
-            if (study && (curPage === 5 || curPage === 9)) {
+            if (study && (curPage === 5 || curPage === 10)) {
                 R[pre + 'WTP'] = +document.getElementById('wtp-val').value;
             }
-            if (curPage === 10) {
+            if (curPage === 11) {
                 const lkIds = ['HI1', 'HI2', 'HI3', 'HI4', 'DL1', 'DL2', 'DL3'];
                 lkIds.forEach(id => {
                     const el = document.querySelector('#' + id + ' input[type=radio]:checked');
