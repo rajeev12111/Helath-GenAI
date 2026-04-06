@@ -1025,12 +1025,12 @@
         <button class="demo-btn" onclick="setDemo(4,this)" title="C5 — Control (No Appeal)">C5</button>
         <button class="demo-btn" onclick="setDemo(5,this)" title="C6 — Doc + Both Appeals">C6</button>
         <button class="demo-btn" onclick="setDemo(6,this)" title="C7 — Gen AI + Both Appeals">C7</button>
-        <button class="demo-btn" onclick="setDemo(7,this)" title="C9 — Doc Approved + Action Appeal">C9</button>
-        <button class="demo-btn" onclick="setDemo(8,this)" title="C10 — Doc Approved + Continuance Appeal">C10</button>
-        <button class="demo-btn" onclick="setDemo(9,this)" title="C11 — Doc Approved + Both Appeals">C11</button>
-        <button class="demo-btn" onclick="setDemo(10,this)" title="C12 — Gen AI Asst + Action Appeal">C12</button>
-        <button class="demo-btn" onclick="setDemo(11,this)" title="C13 — Gen AI Asst + Continuance Appeal">C13</button>
-        <button class="demo-btn" onclick="setDemo(12,this)" title="C14 — Gen AI Asst + Both Appeals">C14</button>
+        <button class="demo-btn" onclick="setDemo(7,this)" title="C8 — Doc Approved + Action Appeal">C8</button>
+        <button class="demo-btn" onclick="setDemo(8,this)" title="C9 — Doc Approved + Continuance Appeal">C9</button>
+        <button class="demo-btn" onclick="setDemo(9,this)" title="C10 — Doc Approved + Both Appeals">C10</button>
+        <button class="demo-btn" onclick="setDemo(10,this)" title="C11 — Doctor's Gen AI Asst + Action">C11</button>
+        <button class="demo-btn" onclick="setDemo(11,this)" title="C12 — Doctor's Gen AI Asst + Continuance">C12</button>
+        <button class="demo-btn" onclick="setDemo(12,this)" title="C13 — Doctor's Gen AI Asst + Both Appeals">C13</button>
         <button class="demo-btn" onclick="setDemo(13,this)" title="S2-1 — Basic Gen AI">S1</button>
         <button class="demo-btn" onclick="setDemo(14,this)" title="S2-2 — Personalised Gen AI">S2</button>
         <button class="demo-btn" onclick="setDemo(15,this)" title="S2-3 — Adaptive Gen AI">S3</button>
@@ -1731,11 +1731,11 @@
             },
 
 
-            // 8: S1C9 Doctor Approved Gen AI + Action
+            // 7: C8 Doctor Approved Gen AI + Action
             {
-                id: 9, study: 1, label: 'S1C9', full: 'Study 1 — Doctor Approved Gen AI + Action',
+                id: 8, study: 1, label: 'S1C8', full: 'Study 1 — Doctor Approved Gen AI + Action',
                 src: 'ai', appeal: 'action',
-                bb: '#e0e7ff', bc: '#4f46e5', bt: 'C9 | Doc-Apprv Action',
+                bb: '#e0e7ff', bc: '#4f46e5', bt: 'C8 | Doc-Apprv Action',
                 sn: 'HealthGuide Gen AI (Doctor Approved)', sr: 'Gen AI trained on large-scale credible medical data (Approved)',
                 vb: 'Medical Data-Trained Gen AI (Clinically Approved)', vbg: '#e0e7ff', vbc: '#4f46e5',
                 title: 'Your Weekly Blood Sugar Action Plan',
@@ -1751,11 +1751,11 @@
                 footer: '— HealthGuide Gen AI (Approved by Dr. M. Sharma)'
             },
 
-            // 9: S1C10 Doctor Approved Gen AI + Continuity
+            // 8: C9 Doctor Approved Gen AI + Continuity
             {
-                id: 10, study: 1, label: 'S1C10', full: 'Study 1 — Doctor Approved Gen AI + Continuity',
+                id: 9, study: 1, label: 'S1C9', full: 'Study 1 — Doctor Approved Gen AI + Continuity',
                 src: 'ai', appeal: 'cont',
-                bb: '#e0e7ff', bc: '#4f46e5', bt: 'C10 | Doc-Apprv Cont.',
+                bb: '#e0e7ff', bc: '#4f46e5', bt: 'C9 | Doc-Apprv Cont.',
                 sn: 'HealthGuide Gen AI (Doctor Approved)', sr: 'Gen AI trained on large-scale credible medical data (Approved)',
                 vb: 'Medical Data-Trained Gen AI (Clinically Approved)', vbg: '#e0e7ff', vbc: '#4f46e5',
                 title: 'Staying Consistent is Your Most Powerful Health Tool',
@@ -1767,11 +1767,11 @@
                 footer: '— HealthGuide Gen AI (Approved by Dr. M. Sharma)'
             },
 
-            // 10: S1C11 Doctor Approved Gen AI + Both Appeals
+            // 9: C10 Doctor Approved Gen AI + Both Appeals
             {
-                id: 11, study: 1, label: 'S1C11', full: 'Study 1 — Doctor Approved Gen AI + Both Appeals',
+                id: 10, study: 1, label: 'S1C10', full: 'Study 1 — Doctor Approved Gen AI + Both Appeals',
                 src: 'ai', appeal: 'both',
-                bb: '#e0e7ff', bc: '#4f46e5', bt: 'C11 | Doc-Apprv Both',
+                bb: '#e0e7ff', bc: '#4f46e5', bt: 'C10 | Doc-Apprv Both',
                 sn: 'HealthGuide Gen AI (Doctor Approved)', sr: 'Gen AI trained on large-scale credible medical data (Approved)',
                 vb: 'Medical Data-Trained Gen AI (Clinically Approved)', vbg: '#e0e7ff', vbc: '#4f46e5',
                 title: 'Your Consistent Action Plan for Long-Term Health',
@@ -1787,11 +1787,11 @@
                 footer: '— HealthGuide Gen AI (Approved by Dr. M. Sharma)'
             },
 
-            // 11: S1C12 Gen AI Assisted Doctor + Action
+            // 10: C11 Doctor's GEN AI assistant + Action
             {
-                id: 12, study: 1, label: 'S1C12', full: 'Study 1 — Gen AI Assisted Doctor + Action',
+                id: 11, study: 1, label: 'S1C11', full: "Study 1 — Doctor's GEN AI assistant + Action",
                 src: 'doc', appeal: 'action',
-                bb: '#fae8ff', bc: '#a21caf', bt: 'C12 | Gen AI Asst Action',
+                bb: '#fae8ff', bc: '#a21caf', bt: 'C11 | Gen AI Asst Action',
                 sn: "Dr. Meera's Gen AI Assistant", sr: 'Gen AI trained on large-scale medical data',
                 vb: 'Medical Data-Trained Gen AI Assistant', vbg: '#fae8ff', vbc: '#a21caf',
                 title: 'Your Weekly Blood Sugar Action Plan',
@@ -1807,11 +1807,11 @@
                 footer: '— Dr. Meera Sharma (with HealthGuide Gen AI)'
             },
 
-            // 12: S1C13 Gen AI Assisted Doctor + Continuity
+            // 11: C12 Doctor's GEN AI assistant + Continuity
             {
-                id: 13, study: 1, label: 'S1C13', full: 'Study 1 — Gen AI Assisted Doctor + Continuity',
+                id: 12, study: 1, label: 'S1C12', full: "Study 1 — Doctor's GEN AI assistant + Continuity",
                 src: 'doc', appeal: 'cont',
-                bb: '#fae8ff', bc: '#a21caf', bt: 'C13 | Gen AI Asst Cont.',
+                bb: '#fae8ff', bc: '#a21caf', bt: 'C12 | Gen AI Asst Cont.',
                 sn: "Dr. Meera's Gen AI Assistant", sr: 'Gen AI trained on large-scale medical data',
                 vb: 'Medical Data-Trained Gen AI Assistant', vbg: '#fae8ff', vbc: '#a21caf',
                 title: 'Staying Consistent is Your Most Powerful Health Tool',
@@ -1823,11 +1823,11 @@
                 footer: '— Dr. Meera Sharma (with HealthGuide Gen AI)'
             },
 
-            // 13: S1C14 Gen AI Assisted Doctor + Both Appeals
+            // 12: C13 Doctor's GEN AI assistant + Both Appeals
             {
-                id: 14, study: 1, label: 'S1C14', full: 'Study 1 — Gen AI Assisted Doctor + Both Appeals',
+                id: 13, study: 1, label: 'S1C13', full: "Study 1 — Doctor's GEN AI assistant + Both Appeals",
                 src: 'doc', appeal: 'both',
-                bb: '#fae8ff', bc: '#a21caf', bt: 'C14 | Gen AI Asst Both',
+                bb: '#fae8ff', bc: '#a21caf', bt: 'C13 | Gen AI Asst Both',
                 sn: "Dr. Meera's Gen AI Assistant", sr: 'Gen AI trained on large-scale medical data',
                 vb: 'Medical Data-Trained Gen AI Assistant', vbg: '#fae8ff', vbc: '#a21caf',
                 title: 'Your Consistent Action Plan for Long-Term Health',
