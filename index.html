@@ -1025,15 +1025,15 @@
         <button class="demo-btn" onclick="setDemo(4,this)" title="C5 — Control (No Appeal)">C5</button>
         <button class="demo-btn" onclick="setDemo(5,this)" title="C6 — Doc + Both Appeals">C6</button>
         <button class="demo-btn" onclick="setDemo(6,this)" title="C7 — Gen AI + Both Appeals">C7</button>
-        <button class="demo-btn" onclick="setDemo(8,this)" title="C8 — Doc Approved + Action Appeal">C8</button>
-        <button class="demo-btn" onclick="setDemo(9,this)" title="C9 — Doc Approved + Continuance Appeal">C9</button>
-        <button class="demo-btn" onclick="setDemo(10,this)" title="C10 — Doc Approved + Both Appeals">C10</button>
-        <button class="demo-btn" onclick="setDemo(11,this)" title="C11 — Gen AI Asst + Action Appeal">C11</button>
-        <button class="demo-btn" onclick="setDemo(12,this)" title="C12 — Gen AI Asst + Continuance Appeal">C12</button>
-        <button class="demo-btn" onclick="setDemo(13,this)" title="C13 — Gen AI Asst + Both Appeals">C13</button>
-        <button class="demo-btn" onclick="setDemo(14,this)" title="S2-1 — Basic Gen AI">S1</button>
-        <button class="demo-btn" onclick="setDemo(15,this)" title="S2-2 — Personalised Gen AI">S2</button>
-        <button class="demo-btn" onclick="setDemo(16,this)" title="S2-3 — Adaptive Gen AI">S3</button>
+        <button class="demo-btn" onclick="setDemo(7,this)" title="C9 — Doc Approved + Action Appeal">C9</button>
+        <button class="demo-btn" onclick="setDemo(8,this)" title="C10 — Doc Approved + Continuance Appeal">C10</button>
+        <button class="demo-btn" onclick="setDemo(9,this)" title="C11 — Doc Approved + Both Appeals">C11</button>
+        <button class="demo-btn" onclick="setDemo(10,this)" title="C12 — Gen AI Asst + Action Appeal">C12</button>
+        <button class="demo-btn" onclick="setDemo(11,this)" title="C13 — Gen AI Asst + Continuance Appeal">C13</button>
+        <button class="demo-btn" onclick="setDemo(12,this)" title="C14 — Gen AI Asst + Both Appeals">C14</button>
+        <button class="demo-btn" onclick="setDemo(13,this)" title="S2-1 — Basic Gen AI">S1</button>
+        <button class="demo-btn" onclick="setDemo(14,this)" title="S2-2 — Personalised Gen AI">S2</button>
+        <button class="demo-btn" onclick="setDemo(15,this)" title="S2-3 — Adaptive Gen AI">S3</button>
     </div>
 
     <!-- ══════════════════════════════════════
@@ -1394,11 +1394,13 @@
     <div class="pg" id="pg_trans">
         <div class="main">
             <div class="sec-title">Review Part 1 Complete</div>
-            <div class="sec-sub">Thank you for your feedback on the first health advisory. Before we move to the next part of the study, please share any brief thoughts or impressions you had about the advisory you just reviewed.</div>
+            <div class="sec-sub">Thank you for your feedback on the first health advisory. Before we move to the next
+                part of the study, please share any brief thoughts or impressions you had about the advisory you just
+                reviewed.</div>
 
             <div class="card">
                 <div class="card-label">Your thoughts (Optional)</div>
-                <textarea class="f-input" id="s1-thoughts" style="height: 120px; padding: 12px; resize: none;" 
+                <textarea class="f-input" id="s1-thoughts" style="height: 120px; padding: 12px; resize: none;"
                     placeholder="Type your thoughts here..."></textarea>
             </div>
 
@@ -1728,7 +1730,8 @@
                 footer: '— HealthGuide Gen AI Assistant'
             },
 
-            // 7: S1C9 Doctor Approved Gen AI + Action
+
+            // 8: S1C9 Doctor Approved Gen AI + Action
             {
                 id: 9, study: 1, label: 'S1C9', full: 'Study 1 — Doctor Approved Gen AI + Action',
                 src: 'ai', appeal: 'action',
@@ -1748,7 +1751,7 @@
                 footer: '— HealthGuide Gen AI (Approved by Dr. M. Sharma)'
             },
 
-            // 8: S1C10 Doctor Approved Gen AI + Continuity
+            // 9: S1C10 Doctor Approved Gen AI + Continuity
             {
                 id: 10, study: 1, label: 'S1C10', full: 'Study 1 — Doctor Approved Gen AI + Continuity',
                 src: 'ai', appeal: 'cont',
@@ -1764,7 +1767,7 @@
                 footer: '— HealthGuide Gen AI (Approved by Dr. M. Sharma)'
             },
 
-            // 9: S1C11 Doctor Approved Gen AI + Both Appeals
+            // 10: S1C11 Doctor Approved Gen AI + Both Appeals
             {
                 id: 11, study: 1, label: 'S1C11', full: 'Study 1 — Doctor Approved Gen AI + Both Appeals',
                 src: 'ai', appeal: 'both',
@@ -1784,9 +1787,9 @@
                 footer: '— HealthGuide Gen AI (Approved by Dr. M. Sharma)'
             },
 
-            // 10: S1C12 doctor’s GEN AI assistant + Action
+            // 11: S1C12 Gen AI Assisted Doctor + Action
             {
-                id: 12, study: 1, label: 'S1C12', full: 'Study 1 — Doctor’s GEN AI assistant + Action',
+                id: 12, study: 1, label: 'S1C12', full: 'Study 1 — Gen AI Assisted Doctor + Action',
                 src: 'doc', appeal: 'action',
                 bb: '#fae8ff', bc: '#a21caf', bt: 'C12 | Gen AI Asst Action',
                 sn: "Dr. Meera's Gen AI Assistant", sr: 'Gen AI trained on large-scale medical data',
@@ -1804,9 +1807,9 @@
                 footer: '— Dr. Meera Sharma (with HealthGuide Gen AI)'
             },
 
-            // 11: S1C13 Doctor’s GEN AI assistant + Continuity
+            // 12: S1C13 Gen AI Assisted Doctor + Continuity
             {
-                id: 13, study: 1, label: 'S1C13', full: 'Study 1 — Doctor’s GEN AI assistant + Continuity',
+                id: 13, study: 1, label: 'S1C13', full: 'Study 1 — Gen AI Assisted Doctor + Continuity',
                 src: 'doc', appeal: 'cont',
                 bb: '#fae8ff', bc: '#a21caf', bt: 'C13 | Gen AI Asst Cont.',
                 sn: "Dr. Meera's Gen AI Assistant", sr: 'Gen AI trained on large-scale medical data',
@@ -1820,9 +1823,9 @@
                 footer: '— Dr. Meera Sharma (with HealthGuide Gen AI)'
             },
 
-            // 12: S1C14 Doctor’s GEN AI assistant + Both Appeals
+            // 13: S1C14 Gen AI Assisted Doctor + Both Appeals
             {
-                id: 14, study: 1, label: 'S1C14', full: 'Study 1 — Doctor’s GEN AI assistant + Both Appeals',
+                id: 14, study: 1, label: 'S1C14', full: 'Study 1 — Gen AI Assisted Doctor + Both Appeals',
                 src: 'doc', appeal: 'both',
                 bb: '#fae8ff', bc: '#a21caf', bt: 'C14 | Gen AI Asst Both',
                 sn: "Dr. Meera's Gen AI Assistant", sr: 'Gen AI trained on large-scale medical data',
@@ -1840,7 +1843,7 @@
                 footer: '— Dr. Meera Sharma (with HealthGuide Gen AI)'
             },
 
-            // 13: S2C1 Basic Gen AI
+            // 14: S2C1 Basic Gen AI
             {
                 id: 15, study: 2, label: 'S2C1', full: 'Study 2 — Basic Gen AI',
                 src: 'ai', appeal: 'cont',
@@ -1854,7 +1857,7 @@
                 footer: '— HealthGuide Gen AI Assistant'
             },
 
-            // 14: S2C2 Personalization
+            // 15: S2C2 Personalization
             {
                 id: 16, study: 2, label: 'S2C2', full: 'Study 2 — Gen AI Personalisation',
                 src: 'ai', appeal: 'cont',
@@ -1869,7 +1872,7 @@
                 footer: '— HealthGuide Gen AI Assistant'
             },
 
-            // 15: S2C3 Personalisation + Adaptability
+            // 16: S2C3 Personalisation + Adaptability
             {
                 id: 17, study: 2, label: 'S2C3', full: 'Study 2 — Gen AI Personalisation + Adaptability',
                 src: 'ai', appeal: 'cont',
@@ -1889,8 +1892,8 @@
         // STATE
         // ═══════════════════════════════════════════
         let curPage = 0;
-        let s1CondIdx = Math.floor(Math.random() * 14); // Study 1: 0-13
-        let s2CondIdx = 14 + Math.floor(Math.random() * 3); // Study 2: 14-16
+        let s1CondIdx = Math.floor(Math.random() * 13); // Study 1: 0-12
+        let s2CondIdx = 13 + Math.floor(Math.random() * 3); // Study 2: 13-15
         let R = {}; // responses object
 
         function initResponses() {
@@ -1949,7 +1952,7 @@
         // RESEARCHER DEMO
         // ═══════════════════════════════════════════
         function setDemo(idx, btn) {
-            if (idx < 14) s1CondIdx = idx; else s2CondIdx = idx;
+            if (idx < 13) s1CondIdx = idx; else s2CondIdx = idx;
             document.querySelectorAll('.demo-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             if (curPage === 2 || curPage === 6) buildStimulus();
@@ -2017,8 +2020,8 @@
             if (!confirm('This will restart the survey and clear all your answers. Continue?')) return;
             initResponses();
             curPage = 0;
-            s1CondIdx = Math.floor(Math.random() * 14);
-            s2CondIdx = 14 + Math.floor(Math.random() * 3);
+            s1CondIdx = Math.floor(Math.random() * 13);
+            s2CondIdx = 13 + Math.floor(Math.random() * 3);
             document.querySelectorAll('input[type=radio]').forEach(r => r.checked = false);
             document.querySelectorAll('input[type=number], input[type=text], textarea').forEach(i => i.value = '');
             document.querySelectorAll('.yn-btn, .mc-opt').forEach(b => b.classList.remove('sel', 'sel-y', 'sel-n'));
