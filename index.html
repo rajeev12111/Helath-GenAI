@@ -1025,7 +1025,6 @@
         <button class="demo-btn" onclick="setDemo(4,this)" title="C5 — Control (No Appeal)">C5</button>
         <button class="demo-btn" onclick="setDemo(5,this)" title="C6 — Doc + Both Appeals">C6</button>
         <button class="demo-btn" onclick="setDemo(6,this)" title="C7 — Gen AI + Both Appeals">C7</button>
-        <button class="demo-btn" onclick="setDemo(7,this)" title="C8 — Hybrid + Both Appeals">C8</button>
         <button class="demo-btn" onclick="setDemo(8,this)" title="C9 — Doc Approved + Action Appeal">C9</button>
         <button class="demo-btn" onclick="setDemo(9,this)" title="C10 — Doc Approved + Continuance Appeal">C10</button>
         <button class="demo-btn" onclick="setDemo(10,this)" title="C11 — Doc Approved + Both Appeals">C11</button>
@@ -1729,27 +1728,7 @@
                 footer: '— HealthGuide Gen AI Assistant'
             },
 
-            // 7: S1C8 Hybrid (Doc+Gen AI) + Both Appeals
-            {
-                id: 8, study: 1, label: 'S1C8', full: 'Study 1 — Doctor×Gen AI Hybrid + Both Appeals',
-                src: 'doc', appeal: 'both',
-                bb: '#f3e8ff', bc: '#6b21a8', bt: 'C8 | Hybrid + Both',
-                sn: 'Dr. Meera Sharma & HealthGuide Gen AI', sr: 'Medical Advisor & Healthcare-Trained Gen AI',
-                vb: 'Clinically Approved Medical Data-Trained Gen AI', vbg: '#f3e8ff', vbc: '#6b21a8',
-                title: 'Your Consistent Action Plan for Long-Term Health',
-                intro: 'Combining clinical expertise with Gen AI\'s analysis of large volumes of medical data trends, we have developed this plan. To protect your long-term progress, staying consistent is your most powerful tool. Our Gen AI has generated, and Dr. Sharma has clinically approved, this clear, actionable plan to help you build routine this week:',
-                tbl: [['Mon', '20-min brisk walk right after dinner'],
-                ['Tue', 'Swap white rice or bread for a high-fibre option at one meal'],
-                ['Wed', 'Check and log your fasting blood glucose in the morning'],
-                ['Thu', 'Reduce your rice or roti portion by one quarter at lunch'],
-                ['Fri', '20-min post-lunch walk; avoid sitting for 2 hours after eating'],
-                ['Sat', 'Cook one low-GI meal from the recommended recipe list'],
-                ['Sun', 'Review this week and choose one thing to improve next week']],
-                today: 'Remember: breaking your routine undoes real progress. Show up today by starting with a 20-minute walk after dinner tonight.',
-                footer: '— Dr. Meera Sharma & HealthGuide Gen AI Assistant'
-            },
-
-            // 8: S1C9 Doctor Approved Gen AI + Action
+            // 7: S1C9 Doctor Approved Gen AI + Action
             {
                 id: 9, study: 1, label: 'S1C9', full: 'Study 1 — Doctor Approved Gen AI + Action',
                 src: 'ai', appeal: 'action',
@@ -1769,7 +1748,7 @@
                 footer: '— HealthGuide Gen AI (Approved by Dr. M. Sharma)'
             },
 
-            // 9: S1C10 Doctor Approved Gen AI + Continuity
+            // 8: S1C10 Doctor Approved Gen AI + Continuity
             {
                 id: 10, study: 1, label: 'S1C10', full: 'Study 1 — Doctor Approved Gen AI + Continuity',
                 src: 'ai', appeal: 'cont',
@@ -1785,7 +1764,7 @@
                 footer: '— HealthGuide Gen AI (Approved by Dr. M. Sharma)'
             },
 
-            // 10: S1C11 Doctor Approved Gen AI + Both Appeals
+            // 9: S1C11 Doctor Approved Gen AI + Both Appeals
             {
                 id: 11, study: 1, label: 'S1C11', full: 'Study 1 — Doctor Approved Gen AI + Both Appeals',
                 src: 'ai', appeal: 'both',
@@ -1805,9 +1784,9 @@
                 footer: '— HealthGuide Gen AI (Approved by Dr. M. Sharma)'
             },
 
-            // 11: S1C12 Gen AI Assisted Doctor + Action
+            // 10: S1C12 doctor’s GEN AI assistant + Action
             {
-                id: 12, study: 1, label: 'S1C12', full: 'Study 1 — Gen AI Assisted Doctor + Action',
+                id: 12, study: 1, label: 'S1C12', full: 'Study 1 — Doctor’s GEN AI assistant + Action',
                 src: 'doc', appeal: 'action',
                 bb: '#fae8ff', bc: '#a21caf', bt: 'C12 | Gen AI Asst Action',
                 sn: "Dr. Meera's Gen AI Assistant", sr: 'Gen AI trained on large-scale medical data',
@@ -1825,9 +1804,9 @@
                 footer: '— Dr. Meera Sharma (with HealthGuide Gen AI)'
             },
 
-            // 12: S1C13 Gen AI Assisted Doctor + Continuity
+            // 11: S1C13 Doctor’s GEN AI assistant + Continuity
             {
-                id: 13, study: 1, label: 'S1C13', full: 'Study 1 — Gen AI Assisted Doctor + Continuity',
+                id: 13, study: 1, label: 'S1C13', full: 'Study 1 — Doctor’s GEN AI assistant + Continuity',
                 src: 'doc', appeal: 'cont',
                 bb: '#fae8ff', bc: '#a21caf', bt: 'C13 | Gen AI Asst Cont.',
                 sn: "Dr. Meera's Gen AI Assistant", sr: 'Gen AI trained on large-scale medical data',
@@ -1841,9 +1820,9 @@
                 footer: '— Dr. Meera Sharma (with HealthGuide Gen AI)'
             },
 
-            // 13: S1C14 Gen AI Assisted Doctor + Both Appeals
+            // 12: S1C14 Doctor’s GEN AI assistant + Both Appeals
             {
-                id: 14, study: 1, label: 'S1C14', full: 'Study 1 — Gen AI Assisted Doctor + Both Appeals',
+                id: 14, study: 1, label: 'S1C14', full: 'Study 1 — Doctor’s GEN AI assistant + Both Appeals',
                 src: 'doc', appeal: 'both',
                 bb: '#fae8ff', bc: '#a21caf', bt: 'C14 | Gen AI Asst Both',
                 sn: "Dr. Meera's Gen AI Assistant", sr: 'Gen AI trained on large-scale medical data',
@@ -1861,7 +1840,7 @@
                 footer: '— Dr. Meera Sharma (with HealthGuide Gen AI)'
             },
 
-            // 14: S2C1 Basic Gen AI
+            // 13: S2C1 Basic Gen AI
             {
                 id: 15, study: 2, label: 'S2C1', full: 'Study 2 — Basic Gen AI',
                 src: 'ai', appeal: 'cont',
@@ -1875,7 +1854,7 @@
                 footer: '— HealthGuide Gen AI Assistant'
             },
 
-            // 15: S2C2 Personalization
+            // 14: S2C2 Personalization
             {
                 id: 16, study: 2, label: 'S2C2', full: 'Study 2 — Gen AI Personalisation',
                 src: 'ai', appeal: 'cont',
@@ -1890,7 +1869,7 @@
                 footer: '— HealthGuide Gen AI Assistant'
             },
 
-            // 16: S2C3 Personalisation + Adaptability
+            // 15: S2C3 Personalisation + Adaptability
             {
                 id: 17, study: 2, label: 'S2C3', full: 'Study 2 — Gen AI Personalisation + Adaptability',
                 src: 'ai', appeal: 'cont',
